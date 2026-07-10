@@ -7,6 +7,7 @@ import { ThemeProvider } from "../../components/theme/theme-provider";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
 import Navbar from "../../components/layouts/navbar";
+import { Footer } from "@/components/layouts/footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -53,9 +54,10 @@ export default async function RootLayout({
         >
           <NextIntlClientProvider locale={locale} messages={messages}>
             <Navbar />
-            <main className="min-h-screen wrapper `bg-(--background)` `text-(--foreground)`">
+            <main className="min-h-screen wrapper flex-1 `bg-(--background)` `text-(--foreground)`">
               {children}
             </main>
+            <Footer />
           </NextIntlClientProvider>
         </ThemeProvider>
       </body>

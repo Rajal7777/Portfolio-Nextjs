@@ -71,13 +71,13 @@ const Navbar = () => {
                 </div>
 
                 {/* Toggle btn & Social icons*/}
-                <div className="flex items-center space-x-2">
+                <div className="flex  items-center space-x-2">
                     <a
                         href="https://github.com/Rajal7777"
                         target="_blank"
                         rel="noreferrer"
                         aria-label="GitHub"
-                        className={cn(buttonVariants({ variant: "ghost", size: "icon" }), "h-10 w-10")}
+                        className={cn(buttonVariants({ variant: "ghost", size: "icon" }), "hidden md:flex h-10 w-10")}
                     >
                         <Image
                             src="/icons/github.svg"
@@ -92,7 +92,7 @@ const Navbar = () => {
                         target="_blank"
                         rel="noreferrer"
                         aria-label="Linkedin"
-                        className={cn(buttonVariants({ variant: "ghost", size: "icon" }), "h-10 w-10")}
+                        className={cn(buttonVariants({ variant: "ghost", size: "icon" }), "hidden md:flex h-10 w-10")}
                     >
                         <Image
                             src="/icons/linkedin.png"
@@ -106,11 +106,10 @@ const Navbar = () => {
                         href="mailto:suwalrajal57@gmail.com"
                         target="_blank"
                         rel="noreferrer"
-                        className={cn(buttonVariants({ variant: "ghost", size: "icon" }), "h-10 w-10")}
+                        className={cn(buttonVariants({ variant: "ghost", size: "icon" }), "hidden md:flex h-10 w-10")}
                     >
                         <Mail className="h-6 w-6" />
                     </a>
-
                     {/* Language toggel */}
                     <DropdownMenu>
                         <DropdownMenuTrigger
@@ -140,6 +139,7 @@ const Navbar = () => {
                     {/* themeToggle btn */}
                     <ThemeToggle />
                 </div>
+
             </nav>
         </header>
     );
