@@ -2,9 +2,11 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "../globals.css";
 
-import { ThemeProvider } from "../component/theme/theme-provider";
-import Navbar from "../component/layouts/navbar";
-
+import { cookies } from "next/headers";
+import { ThemeProvider } from "../../components/theme/theme-provider";
+import { NextIntlClientProvider } from "next-intl";
+import { getLocale, getMessages } from "next-intl/server";
+import Navbar from "../../components/layouts/navbar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,27 +24,39 @@ export const metadata: Metadata = {
     "Rajal's Portfolio.Building clean,responsive  modern web applications using React, Next.js",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  //Language
+  const locale = await getLocale();
+  const messages = await getMessages();
+
+  //Theme
+  const cookieStore = await cookies();
+  const savedTheme = cookieStore.get("theme")?.value || 'light';
+
   return (
     <html
-      lang="en"
+      lang={locale}
+      suppressHydrationWarning
+      style={{ colorScheme: savedTheme }}
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
-          enableSystem
+          defaultTheme={savedTheme}
+          enableSystem={false}
           disableTransitionOnChange
         >
-          <Navbar />
-          <main className="min-h-screen wrapper `bg-(--background)` `text-(--foreground)`">
-            {children}
-          </main>
+          <NextIntlClientProvider locale={locale} messages={messages}>
+            <Navbar />
+            <main className="min-h-screen wrapper `bg-(--background)` `text-(--foreground)`">
+              {children}
+            </main>
+          </NextIntlClientProvider>
         </ThemeProvider>
       </body>
     </html>
