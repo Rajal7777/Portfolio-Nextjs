@@ -17,9 +17,9 @@ import {
   DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
 import { Button } from "@base-ui/react";
-import { motion } from "motion/react";
+import MobileMenu from "./mobile-menu";
 
-const Navlinks = [
+const navLinks = [
   { href: "/about", label: "About", type: "section" },
   { href: "/projects", label: "Projects", type: "page" },
   { href: "/contact", label: "Contact", type: "page" },
@@ -74,7 +74,7 @@ const Navbar = () => {
 
         {/* Desktop Navbar*/}
         <div className="hidden md:flex items-center space-x-8 ">
-          {Navlinks.map((link) => (
+          {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
@@ -170,7 +170,10 @@ const Navbar = () => {
           <ThemeToggle />
 
           {/* Mobile menu button */}
-          <Button onClick={() => setMobileOpen(!mobileOpen)}>
+          <Button
+            onClick={() => setMobileOpen(!mobileOpen)}
+            className="md:hidden"
+          >
             {mobileOpen ? (
               <X className="w-5 h-5" />
             ) : (
@@ -182,14 +185,10 @@ const Navbar = () => {
 
       {/* Mobile navbar */}
       {mobileOpen && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="md:hidden bg-background/95 backdrop-blur-md"
-        >
-          {/* <MobileMenu links={Navlinks} /> */}
-        </motion.div>
+        <MobileMenu navLinks={navLinks} isOpen={mobileOpen} 
+          onClose={() => setMobileOpen(false)}
+          />
+     
       )}
     </header>
   );
