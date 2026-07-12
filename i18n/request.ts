@@ -1,6 +1,7 @@
 import { cookies } from "next/headers";
 import { getRequestConfig } from "next-intl/server";
 
+//Avoid loading unnecessary translations
 const messages = {
   en: () => import("../app/messages/en.json"),
   ja: () => import("../app/messages/ja.json"),

@@ -30,31 +30,37 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  //Language
+  //Language, let next-intl handle it.
   const locale = await getLocale();
   const messages = await getMessages();
 
+  console.log(locale, messages);
+
   //Theme
   const cookieStore = await cookies();
-  const savedTheme = cookieStore.get("theme")?.value || 'light';
+  const initialTheme = cookieStore.get("theme")?.value || "light";
 
   return (
     <html
       lang={locale}
       suppressHydrationWarning
-      style={{ colorScheme: savedTheme }}
+      style={{ colorScheme: initialTheme }}
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <ThemeProvider
           attribute="class"
-          defaultTheme={savedTheme}
+          defaultTheme={initialTheme}
           enableSystem={false}
           disableTransitionOnChange
         >
           <NextIntlClientProvider locale={locale} messages={messages}>
             <Navbar />
-            <main className="min-h-screen wrapper flex-1 `bg-(--background)` `text-(--foreground)`">
+
+            <main
+              className="min-h-screen wrapper flex-1 bg-background 
+              text-foreground"
+            >
               {children}
             </main>
             <Footer />
