@@ -5,9 +5,17 @@ import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 import { contactFormSchema } from "@/lib/validations";
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "./ui/card";
+import {
+    Card,
+    CardContent,
+    CardFooter,
+    CardHeader,
+    CardTitle,
+} from "./ui/card";
 import { Field, FieldError, FieldGroup, FieldLabel } from "./ui/field";
 import { Button } from "./ui/button";
+import { sendContactEmail } from "@/app/(locale)/actions/contact.action";
+import { toast } from "sonner";
 
 const defaultValues = {
     name: "",
@@ -22,26 +30,39 @@ const ContactForm = () => {
         defaultValues: defaultValues,
     });
 
-    console.log(form)
+    const {
+        formState: { errors, isSubmitted, isSubmitSuccessful },
+    } = form;
+
+    // console.log(form);
 
     //handle submit form
-    function onSubmit(data: z.infer<typeof contactFormSchema>) {
-        console.log(data);
-    }
+    const onSubmit = async (data: z.infer<typeof contactFormSchema>) => {
+        const res = await sendContactEmail(data);
+        console.log(res);
+        if (res.success) {
+            form.reset();
+            toast.success(res.message);
+        } else {
+            toast.error(res.message);
+        }
 
+    };
+
+    //input style for the form fields
     const inputStyle =
         "border rounded-md border-border bg-background px-3 py-2 text-sm ring-offset-background  placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1  focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50";
 
     return (
         <>
-            <h2 className="text-center font-serif text-5xl my-6">Contact Form</h2>
-            <Card className="w-full sm:max-w-md md:max-w-4xl mx-auto space-y-8">
+            <h2 className="text-center font-serif text-4xl my-6">Contact Form</h2>
+            <Card className="w-full sm:max-w-md md:max-w-4xl mx-auto space-y-8 border-none">
                 <CardHeader>
                     <CardTitle></CardTitle>
                 </CardHeader>
                 <CardContent>
                     <form
-                        id='contact-form'
+                        id="contact-form"
                         onSubmit={form.handleSubmit(onSubmit)}
                         className="flex flex-col gap-4"
                     >
@@ -121,28 +142,31 @@ const ContactForm = () => {
                         </FieldGroup>
                     </form>
                 </CardContent>
-                <CardFooter>
+                <CardFooter className="flex flex-col gap-4">
                     <Button
                         type="submit"
                         variant="default"
                         className="w-full"
-                        form="contact-form">
-                       {form.formState.isSubmitting ? "Submitting..." : "Submit"}
+                        form="contact-form"
+                    >
+                        {form.formState.isSubmitting ? "Submitting..." : "Submit"}
                     </Button>
-                </CardFooter>
-                {/* error message */}
-                {form.formState.errors && (
-                    <p className="text-red-500 text-center">
-                        Please fix the errors above and try again.
-                    </p>
-                )}
 
-                {/* message for successful submission */}
-                {form.formState.isSubmitSuccessful && (
-                    <p className="text-green-500 text-center">
-                        Form submitted successfully!
-                    </p>
-                )}
+                    {/* error message */}
+
+                    {isSubmitted && Object.keys(errors).length > 0 && (
+                        <p className="text-red-500 text-center">
+                            Please fill the error fields and try again.
+                        </p>
+                    )}
+
+                    {/* message for successful submission */}
+                    {isSubmitSuccessful && (
+                        <p className="text-green-500 text-center">
+                            Form submitted successfully!
+                        </p>
+                    )}
+                </CardFooter>
             </Card>
         </>
     );
