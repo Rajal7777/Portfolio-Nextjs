@@ -14,7 +14,7 @@ import {
 } from "./ui/card";
 import { Field, FieldError, FieldGroup, FieldLabel } from "./ui/field";
 import { Button } from "./ui/button";
-import { sendContactEmail } from "@/app/(locale)/actions/contact.action";
+import { sendContactEmail } from "@/app/actions/contact.action";
 import { toast } from "sonner";
 
 const defaultValues = {
@@ -30,6 +30,7 @@ const ContactForm = () => {
         defaultValues: defaultValues,
     });
 
+    //Form state variables
     const {
         formState: { errors, isSubmitted, isSubmitSuccessful },
     } = form;
@@ -38,13 +39,17 @@ const ContactForm = () => {
 
     //handle submit form
     const onSubmit = async (data: z.infer<typeof contactFormSchema>) => {
-        const res = await sendContactEmail(data);
-        console.log(res);
-        if (res.success) {
-            form.reset();
-            toast.success(res.message);
-        } else {
-            toast.error(res.message);
+        try {
+            const res = await sendContactEmail(data);
+
+            if (res.success) {
+                toast.success(res.message);
+                form.reset(defaultValues);
+            } else {
+                toast.error(res.message);
+            }
+        } catch {
+            toast.error("Something went wrong. Please try again.");
         }
 
     };
@@ -58,7 +63,9 @@ const ContactForm = () => {
             <h2 className="text-center font-serif text-4xl my-6">Contact Form</h2>
             <Card className="w-full sm:max-w-md md:max-w-4xl mx-auto space-y-8 border-none">
                 <CardHeader>
-                    <CardTitle></CardTitle>
+                    <CardTitle
+                        className="text-center text-2xl font-semibold"
+                    >Send an email</CardTitle>
                 </CardHeader>
                 <CardContent>
                     <form
@@ -103,7 +110,7 @@ const ContactForm = () => {
                                                 className={inputStyle}
                                                 id="email"
                                                 {...field}
-                                                autoComplete="off"
+                                                autoComplete="on"
                                                 placeholder="Enter your email"
                                             />
 

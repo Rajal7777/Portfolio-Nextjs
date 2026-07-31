@@ -8,7 +8,8 @@ import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
 import Navbar from "../../components/layouts/navbar";
 import { Footer } from "@/components/layouts/footer";
-import type {  Viewport } from "next";
+import type { Viewport } from "next";
+import { Toaster } from "@/components/ui/sonner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -20,10 +21,10 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const viewport : Viewport = {
+export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-}
+};
 
 export const metadata: Metadata = {
   title: "Portfolio Website | Front-End Developer",
@@ -70,6 +71,7 @@ export default async function RootLayout({
               {children}
             </main>
             <Footer />
+            <Toaster position="top-right" richColors />
           </NextIntlClientProvider>
         </ThemeProvider>
       </body>

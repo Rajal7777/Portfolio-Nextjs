@@ -5,6 +5,7 @@ import {
     Html,
     Section,
     Text,
+    Tailwind,
 } from "@react-email/components";
 
 type Props = {
@@ -16,110 +17,44 @@ type Props = {
 export default function ContactEmail({ name, email, message }: Props) {
     return (
         <Html>
-            <Body style={body}>
-                <Container style={container}>
-                    <Section style={accentBar} />
+            <Tailwind>
+                <Body className="m-0 bg-slate-50 px-4 py-8 font-sans">
+                    <Container className="rounded-2xl border border-slate-200 bg-white p-7 shadow-[0_10px_30px_rgba(15,23,42,0.08)]">
+                        <Section className="mb-5 h-1.5 w-18 rounded-full bg-slate-900" />
 
-                    <Heading style={heading}>New Portfolio Contact</Heading>
+                        <Heading className="m-0 mb-2 text-2xl font-bold leading-8 text-slate-900">
+                            New Portfolio Contact
+                        </Heading>
 
-                    <Text style={subtitle}>Someone sent a message through the website.</Text>
+                        <Text className="m-0 mb-5 text-sm leading-6 text-slate-500">
+                            Someone sent a message through the website.
+                        </Text>
 
-                    <Section style={fieldCard}>
-                        <Text style={label}>Name</Text>
-                        <Text style={value}>{name}</Text>
-                    </Section>
+                        <Section className="mb-3 rounded-xl border border-slate-200 bg-slate-50 px-4 py-3.5">
+                            <Text className="m-0 mb-1.5 text-xs font-bold uppercase tracking-[0.08em] text-slate-500">
+                                Name
+                            </Text>
+                            <Text className="m-0 text-sm leading-6 text-slate-900">{name}</Text>
+                        </Section>
 
-                    <Section style={fieldCard}>
-                        <Text style={label}>Email</Text>
-                        <Text style={value}>{email}</Text>
-                    </Section>
+                        <Section className="mb-3 rounded-xl border border-slate-200 bg-slate-50 px-4 py-3.5">
+                            <Text className="m-0 mb-1.5 text-xs font-bold uppercase tracking-[0.08em] text-slate-500">
+                                Email
+                            </Text>
+                            <Text className="m-0 text-sm leading-6 text-slate-900">{email}</Text>
+                        </Section>
 
-                    <Section style={messageCard}>
-                        <Text style={label}>Message</Text>
-                        <Text style={messageText}>{message}</Text>
-                    </Section>
-                </Container>
-            </Body>
+                        <Section className="mt-1.5 rounded-xl border border-slate-200 bg-slate-50 px-4 py-3.5">
+                            <Text className="m-0 mb-1.5 text-xs font-bold uppercase tracking-[0.08em] text-slate-500">
+                                Message
+                            </Text>
+                            <Text className="m-0 whitespace-pre-wrap text-sm leading-6 text-slate-900">
+                                {message}
+                            </Text>
+                        </Section>
+                    </Container>
+                </Body>
+            </Tailwind>
         </Html>
     );
 }
-
-const body = {
-    backgroundColor: "#f6f7fb",
-    fontFamily:
-        'Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
-    margin: 0,
-    padding: "32px 16px",
-};
-
-const container = {
-    backgroundColor: "#ffffff",
-    border: "1px solid #e5e7eb",
-    borderRadius: "16px",
-    boxShadow: "0 10px 30px rgba(15, 23, 42, 0.08)",
-    padding: "28px",
-};
-
-const accentBar = {
-    backgroundColor: "#111827",
-    borderRadius: "999px",
-    height: "6px",
-    marginBottom: "20px",
-    width: "72px",
-};
-
-const heading = {
-    color: "#111827",
-    fontSize: "24px",
-    fontWeight: 700,
-    lineHeight: "32px",
-    margin: "0 0 8px",
-};
-
-const subtitle = {
-    color: "#6b7280",
-    fontSize: "14px",
-    lineHeight: "22px",
-    margin: "0 0 20px",
-};
-
-const fieldCard = {
-    backgroundColor: "#f9fafb",
-    border: "1px solid #e5e7eb",
-    borderRadius: "12px",
-    padding: "14px 16px",
-    marginBottom: "12px",
-};
-
-const messageCard = {
-    backgroundColor: "#f9fafb",
-    border: "1px solid #e5e7eb",
-    borderRadius: "12px",
-    padding: "14px 16px",
-    marginTop: "6px",
-};
-
-const label = {
-    color: "#6b7280",
-    fontSize: "12px",
-    fontWeight: 700,
-    letterSpacing: "0.08em",
-    lineHeight: "16px",
-    margin: "0 0 6px",
-    textTransform: "uppercase" as const,
-};
-
-const value = {
-    color: "#111827",
-    fontSize: "14px",
-    lineHeight: "22px",
-    margin: 0,
-};
-
-const messageText = {
-    color: "#111827",
-    fontSize: "14px",
-    lineHeight: "24px",
-    margin: 0,
-    whiteSpace: "pre-wrap" as const,
-};
