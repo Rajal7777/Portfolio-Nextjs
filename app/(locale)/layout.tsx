@@ -8,6 +8,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
 import Navbar from "../../components/layouts/navbar";
 import { Footer } from "@/components/layouts/footer";
+import type {  Viewport } from "next";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -18,6 +19,11 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
+
+export const viewport : Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+}
 
 export const metadata: Metadata = {
   title: "Portfolio Website | Front-End Developer",

@@ -1,100 +1,163 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { Mail, X } from 'lucide-react';
-import Image from 'next/image';
-import { cn } from '@/lib/utils';
-import { MobileNavProps } from '@/types';
-import { buttonVariants } from '../ui/button';
-import Link from 'next/link';
+import { motion, AnimatePresence } from "framer-motion";
+import { Mail, X } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+
+import { cn } from "@/lib/utils";
+import { MobileNavProps } from "@/types";
+import { buttonVariants } from "../ui/button";
 
 const MobileMenu = ({ navLinks, isOpen, onClose }: MobileNavProps) => {
-    if (!isOpen) return null;
+  const pathname = usePathname();
 
-    return (
-        <div className="fixed inset-0  z-20 md:hidden">
-            <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.2 }}
+  return (
+    <AnimatePresence>
+      {isOpen && (
+        <div
+          className="fixed inset-0 z-120 md:hidden"
+          role="dialog"
+          aria-modal="true"
+        >
+          {/* Overlay */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            onClick={onClose}
+            className="absolute inset-0 bg-black/35 backdrop-blur-md"
+          />
+
+          {/* Drawer */}
+          <motion.aside
+            initial={{ x: "100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "100%" }}
+            transition={{
+              type: "spring",
+              stiffness: 280,
+              damping: 28,
+            }}
+            onClick={(e) => e.stopPropagation()}
+            className="absolute inset-y-0 right-0 flex h-full w-[85vw] max-w-85 flex-col border-l border-border bg-background shadow-2xl will-change-transform"
+          >
+            {/* Header */}
+            <div className="flex items-center justify-between border-b  px-5 py-4">
+              <div>
+                <h2 className="text-white text-lg font-semibold leading-7">
+                  Menu
+                </h2>
+                <p className="truncate text-xs text-muted-foreground">
+                  Navigate links
+                </p>
+              </div>
+
+              <button
+                type="button"
+                aria-label="Close menu"
                 onClick={onClose}
-                className="absolute inset-0 bg-background/70 backdrop-blur-sm"
-            />
+                className={cn(
+                  buttonVariants({
+                    variant: "ghost",
+                    size: "icon",
+                  }),
+                  "h-10 w-10 focus:outline-none"
+                )}
+              >
+                <X className="h-5 w-5" />
+              </button>
+            </div>
 
-            <motion.aside
-                initial={{ x: '100%' }}
-                animate={{ x: 0 }}
-                exit={{ x: '100%' }}
-                transition={{ type: 'spring', stiffness: 260, damping: 24 }}
-                onClick={(e) => e.stopPropagation()}
-                className="absolute inset-y-0 right-0 flex h-full w-full max-w-[320px] flex-col border-l border-border bg-background/95 shadow-2xl"
+            {/* Navigation */}
+            <nav
+              aria-label="Mobile navigation"
+              className="flex-1 space-y-1.5 overflow-y-auto overscroll-contain px-3 py-4"
             >
-                <div className="flex items-center justify-between border-b border-border px-5 py-4">
-                    <div>
-                        <p className="text-sm font-semibold tracking-wide text-foreground">Menu</p>
-                        <p className="text-xs text-muted-foreground">Navigate links</p>
-                    </div>
+              {navLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={onClose}
+                  className={cn(
+                    "flex items-center rounded-xl px-2 py-2 text-base font-light  transition-colors duration-200",
+                    pathname.startsWith(link.href)
+                      ? "bg-accent text-foreground"
+                      : "text-foreground/90 hover:bg-accent/70 hover:text-foreground"
+                  )}
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </nav>
 
-                    <button
-                        type="button"
-                        aria-label="Close menu"
-                        onClick={onClose}
-                        className={cn(buttonVariants({ variant: 'ghost', size: 'icon' }), 'h-10 w-10')}
-                    >
-                        <X className="h-5 w-5" />
-                    </button>
-                </div>
+            {/* Footer */}
+            <div className="shrink-0 border-t border-border px-5 py-4">
+              <div className="flex items-center gap-2">
+                <a
+                  href="https://github.com/Rajal7777"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="GitHub"
+                  className={cn(
+                    buttonVariants({
+                      variant: "ghost",
+                      size: "icon",
+                    }),
+                    "h-10 w-10"
+                  )}
+                >
+                  <Image
+                    src="/icons/github.svg"
+                    alt="GitHub"
+                    width={20}
+                    height={20}
+                  />
+                </a>
 
-                <nav className="flex-1 overflow-y-auto px-4 py-5 space-y-2">
-                     {navLinks.map((link) => (
-                            <Link
-                                key={link.href}
-                                href={link.href}
-                                onClick={onClose}
-                                className="flex items-center rounded-lg px-3 py-3  font-medium text-muted-foreground transition-colors hover:text-blue-700"
-                            >
-                              {link.label}
-                              </Link>
-                        ))}
-                 </nav>
+                <a
+                  href="https://www.linkedin.com/in/rajal-suwal-158986165/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn"
+                  className={cn(
+                    buttonVariants({
+                      variant: "ghost",
+                      size: "icon",
+                    }),
+                    "h-10 w-10"
+                  )}
+                >
+                  <Image
+                    src="/icons/linkedin.png"
+                    alt="LinkedIn"
+                    width={28}
+                    height={28}
+                  />
+                </a>
 
-                <div className="border-t border-border px-5 py-4">
-                    <div className="flex items-center gap-2">
-                        <a
-                            href="https://github.com/Rajal7777"
-                            target="_blank"
-                            rel="noreferrer"
-                            aria-label="GitHub"
-                            className={cn(buttonVariants({ variant: 'ghost', size: 'icon' }), 'h-10 w-10')}
-                        >
-                            <Image src="/icons/github.svg" alt="github logo" width={20} height={20} />
-                        </a>
-
-                        <a
-                            href="https://www.linkedin.com/in/rajal-suwal-158986165/"
-                            target="_blank"
-                            rel="noreferrer"
-                            aria-label="Linkedin"
-                            className={cn(buttonVariants({ variant: 'ghost', size: 'icon' }), 'h-10 w-10')}
-                        >
-                            <Image src="/icons/linkedin.png" alt="LinkedIn logo" width={28} height={28} />
-                        </a>
-
-                        <a
-                            href="mailto:suwalrajal57@gmail.com"
-                            target="_blank"
-                            rel="noreferrer"
-                            aria-label="Email"
-                            className={cn(buttonVariants({ variant: 'ghost', size: 'icon' }), 'h-10 w-10')}
-                        >
-                            <Mail className="h-5 w-5" />
-                        </a>
-                    </div>
-                </div>
-            </motion.aside>
+                <a
+                  href="mailto:suwalrajal57@gmail.com"
+                  aria-label="Email"
+                  className={cn(
+                    buttonVariants({
+                      variant: "ghost",
+                      size: "icon",
+                    }),
+                    "h-10 w-10"
+                  )}
+                >
+                  <Mail className="h-5 w-5" />
+                </a>
+              </div>
+            </div>
+          </motion.aside>
         </div>
-    );
+      )}
+    </AnimatePresence>
+  );
 };
 
 export default MobileMenu;

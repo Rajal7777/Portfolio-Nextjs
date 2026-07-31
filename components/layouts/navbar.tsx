@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useState, useTransition } from "react";
+import { useEffect, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 
 import Image from "next/image";
@@ -16,7 +16,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
-import { Button } from "@base-ui/react";
+
 import MobileMenu from "./mobile-menu";
 
 const navLinks = [
@@ -28,7 +28,6 @@ const navLinks = [
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [isPending, startTransition] = useTransition();
 
   const pathname = usePathname();
   const router = useRouter();
@@ -36,28 +35,47 @@ const Navbar = () => {
   const handleLanguageChange = (nextLocale: "en" | "ja") => {
     document.cookie = `NEXT_LOCALE=${nextLocale}; path=/; SameSite=Lax;`;
 
-    //1.Forces Next.js to fetch a fresh layout response from the server using your new cookie, dynamically updating
-    // 2. Wrap routing updates inside a transition to tell Next.js to update the UI
-    startTransition(() => {
-      router.refresh();
-    });
+    // Forces Next.js to fetch a fresh layout response from the server using the new cookie
+    router.refresh();
   };
 
-  const onScroll = useCallback(() => {
-    setScrolled(window.scrollY > 20);
+  useEffect(() => {
+    const onScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+
+    window.addEventListener("scroll", onScroll);
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+    };
   }, []);
 
+  //Added Escape-key handling and body scroll lock while the menu is open
   useEffect(() => {
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, [onScroll]);
+    if (!mobileOpen) return;
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setMobileOpen(false);
+      }
+    };
+
+    document.body.style.overflow = mobileOpen ? "hidden" : "";
+    window.addEventListener("keydown", onKeyDown);
+
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", onKeyDown);
+    };
+  }, [mobileOpen]);
 
   return (
     <header
       className={cn(
-        "sticky top-0 left-0 z-50 transition-all border-gray-200 dark:border-gary-900 duration-200",
+        "sticky top-0 z-120 border-gray-200 transition-all duration-200 dark:border-gray-900",
         scrolled
-          ? "bg-background/80 backdrop-blur-md border-b shadow-sm"
+          ? "border-b bg-background/80 backdrop-blur-md shadow-sm"
           : "bg-transparent",
       )}
     >
@@ -87,6 +105,7 @@ const Navbar = () => {
             </Link>
           ))}
         </div>
+
         {/* Toggle btn & Social icons*/}
         <div className="flex  items-center space-x-2">
           <a
@@ -150,7 +169,7 @@ const Navbar = () => {
               <Languages className="h-6 w-6" />
             </DropdownMenuTrigger>
 
-            <DropdownMenuContent align="end">
+            <DropdownMenuContent align="end" className="z-110">
               <DropdownMenuItem
                 className="cursor-pointer"
                 onClick={() => handleLanguageChange("ja")}
@@ -170,25 +189,33 @@ const Navbar = () => {
           <ThemeToggle />
 
           {/* Mobile menu button */}
-          <Button
-            onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden"
+          <button
+            type="button"
+            aria-label={mobileOpen ? "Close mobile menu" : "Open mobile menu"}
+            className={cn(
+              buttonVariants({ variant: "ghost", size: "icon" }),
+              "h-10 w-10 md:hidden",
+            )}
+            onClick={() => {
+              setMobileOpen((prev) => !prev);
+            }}
           >
             {mobileOpen ? (
               <X className="w-5 h-5" />
             ) : (
               <Menu className="w-5 h-5" />
             )}
-          </Button>
+          </button>
         </div>
       </nav>
 
       {/* Mobile navbar */}
       {mobileOpen && (
-        <MobileMenu navLinks={navLinks} isOpen={mobileOpen} 
+        <MobileMenu
+          navLinks={navLinks}
+          isOpen={mobileOpen}
           onClose={() => setMobileOpen(false)}
-          />
-     
+        />
       )}
     </header>
   );

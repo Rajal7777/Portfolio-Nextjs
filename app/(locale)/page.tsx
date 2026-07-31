@@ -1,14 +1,11 @@
-import {useTranslations} from 'next-intl';
+'use client'
 
-
-
+console.log("CLIENT COMPONENT LOADED");
 
 export default function Home() {
-const t = useTranslations('homePage');
-
   return (
-   <div>
-   {t('title')}
-   </div>
+    <div>
+      <h1>Welcome to Next.js!</h1>
+    </div>
   );
 }

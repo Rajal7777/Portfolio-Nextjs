@@ -12,7 +12,8 @@ export function ThemeToggle() {
 
   // useEffect only runs on the client, forcing a re-render after hydration
   useEffect(() => {
-    setMounted(true);
+    const frame = window.requestAnimationFrame(() => setMounted(true));
+    return () => window.cancelAnimationFrame(frame);
   }, []);
 
   //prevents layout shift because something is rendered immediately.
