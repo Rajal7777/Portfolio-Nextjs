@@ -1,5 +1,10 @@
- {
+{
   "homePage": {
-    "title": "Hello world!"
+    "hero": {
+      "stack": "(React.js / Next.js)",
+      "description": "I'm a frontend developer based in Japan, focused on building modern, responsive, and user-friendly web applications. I work with JavaScript, TypeScript, React, Next.js, Tailwind CSS, Node.js, Prisma, and PostgreSQL, and I'm continuously expanding my full-stack development skills by building real-world projects.",
+      "resumeCta": "Download Resume",
+      "imageAlt": "Portrait image for the portfolio hero section"
+    }
   }
 }

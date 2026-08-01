@@ -1,11 +1,9 @@
-'use client'
-
-console.log("CLIENT COMPONENT LOADED");
+import HeroSection from '@/components/header/hero';
 
 export default function Home() {
   return (
     <div>
-      <h1>Welcome to Next.js!</h1>
+      <HeroSection />
     </div>
   );
 }

@@ -1,5 +1,12 @@
 {
     "homePage": {
-        "title": "褒めて"
+        "hero": {
+            "eyebrow": "ポートフォリオ",
+            "role": "フロントエンド開発者。",
+            "stack": "(React.js / Next.js)",
+            "description": "日本を拠点に、モダンでレスポンシブ、使いやすい Web アプリケーションの開発に取り組んでいるフロントエンド開発者です。JavaScript、TypeScript、React、Next.js、Tailwind CSS、Node.js、Prisma、PostgreSQL を扱いながら、実践的なプロジェクトを通してフルスタック開発のスキルも継続的に伸ばしています。",
+            "resumeCta": "履歴書をダウンロード",
+            "imageAlt": "ポートフォリオのヒーロー画像"
+        }
     }
 }
