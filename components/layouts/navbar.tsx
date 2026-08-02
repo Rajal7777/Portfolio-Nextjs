@@ -9,7 +9,7 @@ import Link from "next/link";
 import { ThemeToggle } from "../theme/theme-toggle";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { Languages, Mail, Menu, X } from "lucide-react";
+import { ArrowLeft, Languages, Mail, Menu, X } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -81,13 +81,16 @@ const Navbar = () => {
     >
       <nav className="wrapper  h-16 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/">
+        <Link href="/"
+        className="flex items-center gap-2 font-medium">
           <Image
             src="/icons/logo.png"
             alt="logo image"
             width={32}
             height={32}
+          className="rounded-full hidden md:flex"
           />
+          <span className="flex items-center md:hidden text-sm py-0.5 px-2 bg-foreground/25 text-white rounded-md"><ArrowLeft width={15} height={15} />Home</span>
         </Link>
 
         {/* Desktop Navbar*/}
