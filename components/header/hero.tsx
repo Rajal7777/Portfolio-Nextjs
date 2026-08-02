@@ -6,8 +6,8 @@ const HeroSection = async () => {
   const t = await getTranslations("homePage.hero");
 
   return (
-    <section className="mx-auto flex min-h-[calc(100svh-5rem)] max-w-5xl flex-col gap-8 px-4 sm:px-6 md:gap-10  lg:flex-row lg:items-center lg:justify-between">
-      <main className="order-2 max-w-2xl space-y-5 text-center lg:order-1 lg:text-left">
+    <section className="mx-auto flex py-8 md:my-12 max-w-4xl flex-col px-4 sm:px-6 md:gap-10  lg:flex-row lg:items-center lg:justify-between">
+      <main className="order-2 max-w-2xl mx-auto space-y-5 text-center lg:order-1 lg:text-left">
         <div className="space-y-3">
           <p className="text-sm font-semibold uppercase tracking-[0.25em] text-muted-foreground/80">
             Hi I&lsquo;m Rajal Suwal.
@@ -20,7 +20,7 @@ const HeroSection = async () => {
           </h2>
         </div>
 
-        <p className="text-xs text-pretty md:text-base leading-7 text-muted-foreground sm:text-lg">
+        <p className="text-xs  text-pretty md:text-base leading-7 text-muted-foreground sm:text-lg">
           {t("description")}
         </p>
 
