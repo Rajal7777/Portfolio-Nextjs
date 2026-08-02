@@ -18,6 +18,7 @@ import {
 } from "../ui/dropdown-menu";
 
 import MobileMenu from "./mobile-menu";
+import { motion } from "framer-motion";
 
 const navLinks = [
   { href: "/about", label: "About", type: "section" },
@@ -71,7 +72,10 @@ const Navbar = () => {
   }, [mobileOpen]);
 
   return (
-    <header
+    <motion.header
+      initial={{ opacity: 0, y: -14 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4, ease: "easeOut" }}
       className={cn(
         "sticky top-0 z-120 border-gray-200 transition-all duration-200 dark:border-gray-900",
         scrolled
@@ -82,13 +86,13 @@ const Navbar = () => {
       <nav className="wrapper  h-16 flex items-center justify-between">
         {/* Logo */}
         <Link href="/"
-        className="flex items-center gap-2 font-medium">
+          className="flex items-center gap-2 font-medium">
           <Image
             src="/icons/logo.png"
             alt="logo image"
             width={32}
             height={32}
-          className="rounded-full hidden md:flex"
+            className="rounded-full hidden md:flex"
           />
           <span className="flex items-center md:hidden text-sm py-0.5 px-2 bg-foreground/25 text-white rounded-md"><ArrowLeft width={15} height={15} />Home</span>
         </Link>
@@ -220,7 +224,7 @@ const Navbar = () => {
           onClose={() => setMobileOpen(false)}
         />
       )}
-    </header>
+    </motion.header>
   );
 };
 

@@ -1,13 +1,14 @@
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
+import { FadeIn } from "../common/fade-in";
 
 const HeroSection = async () => {
   const t = await getTranslations("homePage.hero");
 
   return (
     <section className="mx-auto flex py-8 md:my-12 max-w-4xl flex-col px-4 sm:px-6 md:gap-10  lg:flex-row lg:items-center lg:justify-between">
-      <main className="order-2 max-w-2xl mx-auto space-y-5 text-center lg:order-1 lg:text-left">
+      <FadeIn className="order-2 max-w-2xl mx-auto space-y-5 text-center lg:order-1 lg:text-left">
         <div className="space-y-3">
           <p className="text-sm font-semibold uppercase tracking-[0.25em] text-muted-foreground/80">
             Hi I&lsquo;m Rajal Suwal.
@@ -34,10 +35,13 @@ const HeroSection = async () => {
             <ArrowRight className="h-4 w-4" />
           </a>
         </div>
-      </main>
+      </FadeIn>
 
       {/* image section */}
-      <div className="order-1 flex shrink-0 justify-center lg:order-2 lg:justify-end">
+      <FadeIn
+        delay={0.1}
+        className="order-1 flex shrink-0 justify-center lg:order-2 lg:justify-end"
+      >
         <Image
           src="/images/me.webp"
           alt={t("imageAlt")}
@@ -46,7 +50,7 @@ const HeroSection = async () => {
           className="h-auto w-64 rounded-2xl object-cover sm:w-72 md:w-80"
           priority
         />
-      </div>
+      </FadeIn>
     </section>
   );
 };

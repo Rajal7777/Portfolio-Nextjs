@@ -16,6 +16,7 @@ import { Field, FieldError, FieldGroup, FieldLabel } from "./ui/field";
 import { Button } from "./ui/button";
 import { sendContactEmail } from "@/app/actions/contact.action";
 import { toast } from "sonner";
+import { motion } from "framer-motion";
 
 const defaultValues = {
   name: "",
@@ -59,126 +60,141 @@ const ContactForm = () => {
 
   return (
     <>
-      <h2 className="text-center font-serif text-4xl my-6">Contact Form</h2>
-      <Card className="w-full sm:max-w-md md:max-w-4xl mx-auto space-y-8 border-none">
-        <CardHeader>
-          <CardTitle className="text-center text-2xl font-semibold">
-            Send an email
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <form
-            method="POST"
-            id="contact-form"
-            onSubmit={form.handleSubmit(onSubmit)}
-            className="flex flex-col gap-4"
-          >
-            <FieldGroup>
-              {/* fullName */}
-              <Controller
-                name="name"
-                control={form.control}
-                render={({ field, fieldState }) => {
-                  return (
-                    <Field data-invalid={fieldState.invalid}>
-                      <FieldLabel htmlFor="name">Name</FieldLabel>
-                      <input
-                        className={inputStyle}
-                        id="name"
-                        {...field}
-                        autoComplete="off"
-                        placeholder="Enter your name"
-                        required
-                      />
+      <motion.h2
+        initial={{ opacity: 0, y: 12 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.4 }}
+        transition={{ duration: 0.4, ease: "easeOut" }}
+        className="my-6 text-center font-serif text-4xl"
+      >
+        Contact Form
+      </motion.h2>
+      <motion.div
+        initial={{ opacity: 0, y: 18 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.45, ease: "easeOut", delay: 0.08 }}
+      >
+        <Card className="w-full sm:max-w-md md:max-w-4xl mx-auto space-y-8 border-none">
+          <CardHeader>
+            <CardTitle className="text-center text-2xl font-semibold">
+              Send an email
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <form
+              method="POST"
+              id="contact-form"
+              onSubmit={form.handleSubmit(onSubmit)}
+              className="flex flex-col gap-4"
+            >
+              <FieldGroup>
+                {/* fullName */}
+                <Controller
+                  name="name"
+                  control={form.control}
+                  render={({ field, fieldState }) => {
+                    return (
+                      <Field data-invalid={fieldState.invalid}>
+                        <FieldLabel htmlFor="name">Name</FieldLabel>
+                        <input
+                          className={inputStyle}
+                          id="name"
+                          {...field}
+                          autoComplete="off"
+                          placeholder="Enter your name"
+                          required
+                        />
 
-                      {fieldState.invalid && (
-                        <FieldError errors={[fieldState.error]} />
-                      )}
-                    </Field>
-                  );
-                }}
-              />
+                        {fieldState.invalid && (
+                          <FieldError errors={[fieldState.error]} />
+                        )}
+                      </Field>
+                    );
+                  }}
+                />
 
-              {/* email */}
-              <Controller
-                name="email"
-                control={form.control}
-                render={({ field, fieldState }) => {
-                  return (
-                    <Field data-invalid={fieldState.invalid}>
-                      <FieldLabel htmlFor="email">Email</FieldLabel>
-                      <input
-                        className={inputStyle}
-                        type="email"
-                        id="email"
-                        {...field}
-                        autoComplete="on"
-                        placeholder="Enter your email"
-                        required
-                      />
+                {/* email */}
+                <Controller
+                  name="email"
+                  control={form.control}
+                  render={({ field, fieldState }) => {
+                    return (
+                      <Field data-invalid={fieldState.invalid}>
+                        <FieldLabel htmlFor="email">Email</FieldLabel>
+                        <input
+                          className={inputStyle}
+                          type="email"
+                          id="email"
+                          {...field}
+                          autoComplete="on"
+                          placeholder="Enter your email"
+                          required
+                        />
 
-                      {fieldState.invalid && (
-                        <FieldError errors={[fieldState.error]} />
-                      )}
-                    </Field>
-                  );
-                }}
-              />
+                        {fieldState.invalid && (
+                          <FieldError errors={[fieldState.error]} />
+                        )}
+                      </Field>
+                    );
+                  }}
+                />
 
-              {/* message */}
-              <Controller
-                name="message"
-                control={form.control}
-                render={({ field, fieldState }) => {
-                  return (
-                    <Field data-invalid={fieldState.invalid}>
-                      <FieldLabel htmlFor="message">Message</FieldLabel>
-                      <textarea
-                        className={inputStyle}
-                        rows={6}
-                        id="message"
-                        {...field}
-                        autoComplete="off"
-                        placeholder="Enter your message"
-                      />
+                {/* message */}
+                <Controller
+                  name="message"
+                  control={form.control}
+                  render={({ field, fieldState }) => {
+                    return (
+                      <Field data-invalid={fieldState.invalid}>
+                        <FieldLabel htmlFor="message">Message</FieldLabel>
+                        <textarea
+                          className={inputStyle}
+                          rows={6}
+                          id="message"
+                          {...field}
+                          autoComplete="off"
+                          placeholder="Enter your message"
+                        />
 
-                      {fieldState.invalid && (
-                        <FieldError errors={[fieldState.error]} />
-                      )}
-                    </Field>
-                  );
-                }}
-              />
-            </FieldGroup>
+                        {fieldState.invalid && (
+                          <FieldError errors={[fieldState.error]} />
+                        )}
+                      </Field>
+                    );
+                  }}
+                />
+              </FieldGroup>
 
-            <div>
-              <Button
-                type="submit"
-                variant="default"
-                className="w-full"
-                form="contact-form"
-              >
-                {form.formState.isSubmitting ? "Submitting..." : "Submit"}
-              </Button>
+              <div>
+                <Button
+                  type="submit"
+                  variant="default"
+                  className="w-full"
+                  form="contact-form"
+                >
+                  {form.formState.isSubmitting ? "Submitting..." : "Submit"}
+                </Button>
 
-              {/* error message */}
+                {/* error message */}
 
-              {isSubmitted && Object.keys(errors).length > 0 && (
-                <p className="text-red-500 text-center">
-                  Please fill the error fields and try again.
-                </p>
-              )}
+                {isSubmitted && Object.keys(errors).length > 0 && (
+                  <p className="text-red-500 text-center">
+                    Please fill the error fields and try again.
+                  </p>
+                )}
 
-              {/* message for successful submission */}
-              {isSubmitSuccessful && (
-                <p className="text-green-500 text-center">
-                  Form submitted successfully!
-                </p>
-              )}
-            </div>
-          </form>
-        </CardContent>
-      </Card>
+                {/* message for successful submission */}
+                {isSubmitSuccessful && (
+                  <p className="text-green-500 text-center">
+                    Form submitted successfully!
+                  </p>
+                )}
+              </div>
+            </form>
+          </CardContent>
+        </Card>
+      </motion.div>
     </>
   );
 };
