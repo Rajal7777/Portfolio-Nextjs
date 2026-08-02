@@ -6,5 +6,9 @@
       "resumeCta": "Download Resume",
       "imageAlt": "Portrait image for the portfolio hero section"
     }
+  },
+  "aboutPage": {
+    "title": "About Me",
+    "description": "I've always been interested in technology and wanted to build practical technical skills. That curiosity led me to choose front-end development, where I enjoy creating responsive and user-friendly web applications.\n\nLearning during the AI era has made my journey much more effective. After building a strong foundation in web development, AI became a valuable learning partner, helping me understand new concepts, solve problems, and keep improving whenever I got stuck.\n\nMy goal over the next 3-5 years is to work alongside experienced developers, continue growing as a professional, and become an AI-integrated full-stack web developer."
   }
 }

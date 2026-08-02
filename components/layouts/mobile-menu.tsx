@@ -17,7 +17,7 @@ const MobileMenu = ({ navLinks, isOpen, onClose }: MobileNavProps) => {
     <AnimatePresence>
       {isOpen && (
         <div
-          className="fixed inset-0 z-120 md:hidden"
+          className="fixed inset-0 z-120 md:hidden h-4/5"
           role="dialog"
           aria-modal="true"
         >

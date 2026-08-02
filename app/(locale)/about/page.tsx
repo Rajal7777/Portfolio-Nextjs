@@ -1,6 +1,9 @@
+import AboutMe from "@/components/header/aboutMe";
+
+
 const AboutPage = () => {
     return ( 
-        <p>About page</p>
+       <AboutMe />
      );
 }
  
