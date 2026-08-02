@@ -20,7 +20,7 @@ const HeroSection = async () => {
           </h2>
         </div>
 
-        <p className="text-pretty text-base leading-7 text-muted-foreground sm:text-lg">
+        <p className="text-xs text-pretty md:text-base leading-7 text-muted-foreground sm:text-lg">
           {t("description")}
         </p>
 
@@ -28,7 +28,7 @@ const HeroSection = async () => {
           <a
             href="/CV/resume.pdf"
             download="resume.pdf"
-            className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-gray-600 px-5 py-1 text-sm font-medium text-muted-foreground transition-colors hover:bg-gray-700/90 hover:text-background sm:w-auto md:py-3"
+            className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-gray-600 px-5 py-1 text-sm font-medium text-white transition-colors hover:bg-gray-500 sm:w-auto md:py-3"
           >
             {t("resumeCta")}
             <ArrowRight className="h-4 w-4" />

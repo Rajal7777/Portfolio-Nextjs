@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { Mail, X } from "lucide-react";
+import { Mail, X, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -17,7 +17,7 @@ const MobileMenu = ({ navLinks, isOpen, onClose }: MobileNavProps) => {
     <AnimatePresence>
       {isOpen && (
         <div
-          className="fixed inset-0 z-120 md:hidden h-4/5"
+          className="fixed inset-0 z-120 md:hidden"
           role="dialog"
           aria-modal="true"
         >
@@ -28,7 +28,7 @@ const MobileMenu = ({ navLinks, isOpen, onClose }: MobileNavProps) => {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
             onClick={onClose}
-            className="absolute inset-0 bg-black/35 backdrop-blur-md"
+            className="absolute inset-0 bg-black/25"
           />
 
           {/* Drawer */}
@@ -42,12 +42,12 @@ const MobileMenu = ({ navLinks, isOpen, onClose }: MobileNavProps) => {
               damping: 28,
             }}
             onClick={(e) => e.stopPropagation()}
-            className="absolute inset-y-0 right-0 flex h-full w-[85vw] max-w-85 flex-col border-l border-border bg-background shadow-2xl will-change-transform"
+            className="absolute top-0 right-0 h-screen w-[85vw] max-w-sm bg-background shadow-2xl flex flex-col"
           >
             {/* Header */}
             <div className="flex items-center justify-between border-b  px-5 py-4">
               <div>
-                <h2 className="text-white text-lg font-semibold leading-7">
+                <h2 className="text-muted-foreground text-lg font-semibold leading-7">
                   Menu
                 </h2>
                 <p className="truncate text-xs text-muted-foreground">
@@ -82,13 +82,14 @@ const MobileMenu = ({ navLinks, isOpen, onClose }: MobileNavProps) => {
                   href={link.href}
                   onClick={onClose}
                   className={cn(
-                    "flex items-center rounded-xl px-2 py-2 text-base font-light  transition-colors duration-200",
+                    "flex items-center rounded-xl px-2 py-1 text-sm md:text-base font-light  transition-colors duration-200",
                     pathname.startsWith(link.href)
                       ? "bg-accent text-foreground"
                       : "text-foreground/90 hover:bg-accent/70 hover:text-foreground"
                   )}
                 >
                   {link.label}
+                  <ArrowRight className="ml-auto h-4 w-4" />
                 </Link>
               ))}
             </nav>
