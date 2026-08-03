@@ -18,6 +18,7 @@ export function FadeIn({
     once = true,
     ...props
 }: FadeInProps) {
+    //amount: 0.2 means when 20% of the component is visible in the viewport, animation will be triggered.
     return (
         <motion.div
             initial={{ opacity: 0, y }}

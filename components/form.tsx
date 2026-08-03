@@ -8,7 +8,6 @@ import { contactFormSchema } from "@/lib/validations";
 import {
   Card,
   CardContent,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "./ui/card";
@@ -24,7 +23,7 @@ const defaultValues = {
   message: "",
 };
 
-const ContactForm = () => {
+const ContactForm = ({title}: {title?: string}) => {
   //connect the form to react-hook-form and zod for validation
   const form = useForm<z.infer<typeof contactFormSchema>>({
     resolver: zodResolver(contactFormSchema),
@@ -60,15 +59,17 @@ const ContactForm = () => {
 
   return (
     <>
-      <motion.h2
+    {title && (
+        <motion.h2
         initial={{ opacity: 0, y: 12 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.4 }}
         transition={{ duration: 0.4, ease: "easeOut" }}
         className="my-6 text-center font-serif text-4xl"
       >
-        Contact Form
+        {title}
       </motion.h2>
+      )}
       <motion.div
         initial={{ opacity: 0, y: 18 }}
         whileInView={{ opacity: 1, y: 0 }}

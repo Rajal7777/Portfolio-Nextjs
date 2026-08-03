@@ -19,7 +19,7 @@ const EducationPage = () => {
                 </h2>
             </FadeIn>
             <FadeIn delay={0.05}>
-                <span className="text-[1.2rem] bg-gray-700 text-background rounded-md inline-flex w-fit font-medium">
+                <span className="text-[1.2rem] bg-gray-700 text-background rounded-md inline-flex w-fit font-medium px-1">
                     Education Background Nepal
                 </span>
             </FadeIn>
@@ -59,7 +59,7 @@ const EducationPage = () => {
                 <hr />
             </FadeIn>
             <FadeIn delay={0.3}>
-                <span className="text-[1.2rem] bg-gray-700 text-background rounded-md inline-flex w-fit font-medium">
+                <span className="text-[1.2rem] bg-gray-700 text-background rounded-md inline-flex w-fit font-medium px-1">
                     Education Background Japan
                 </span>
             </FadeIn>

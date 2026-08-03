@@ -8,6 +8,7 @@ const HeroSection = async () => {
 
   return (
     <section className="mx-auto flex py-8 md:my-12 max-w-4xl flex-col px-4 sm:px-6 md:gap-10  lg:flex-row lg:items-center lg:justify-between">
+
       <FadeIn className="order-2 max-w-2xl mx-auto space-y-5 text-center lg:order-1 lg:text-left">
         <div className="space-y-3">
           <p className="text-sm font-semibold uppercase tracking-[0.25em] text-muted-foreground/80">
@@ -15,7 +16,7 @@ const HeroSection = async () => {
           </p>
           <h2 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
             Frontend Developer{" "}
-            <span className=" block text-2xl text-muted-foreground sm:inline">
+            <span className="block text-2xl text-muted-foreground sm:inline">
               {t("stack")}
             </span>
           </h2>
@@ -40,7 +41,7 @@ const HeroSection = async () => {
       {/* image section */}
       <FadeIn
         delay={0.1}
-        className="order-1 flex shrink-0 justify-center lg:order-2 lg:justify-end"
+        className="order-1 flex shrink-0 justify-center lg:order-2"
       >
         <Image
           src="/images/me.webp"

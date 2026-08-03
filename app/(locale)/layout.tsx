@@ -22,7 +22,7 @@ const geistMono = Geist_Mono({
 });
 
 export const viewport: Viewport = {
-  width: 'device-width',
+  width: "device-width",
   initialScale: 1,
 };
 
@@ -40,8 +40,6 @@ export default async function RootLayout({
   //Language, let next-intl handle it.
   const locale = await getLocale();
   const messages = await getMessages();
-
-  console.log(locale, messages);
 
   //Theme
   const cookieStore = await cookies();

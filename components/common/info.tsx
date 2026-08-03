@@ -1,3 +1,4 @@
+import { cn } from "@/lib/utils";
 import Image from "next/image";
 
 type InfoProps = {
@@ -12,8 +13,8 @@ type InfoProps = {
 const InfoCard = ({ title, description, image, duration, info, className }: InfoProps) => {
   return (
     <section className={"flex items-center justify-between gap-4 align-top " + (className ?? "")}>
-      <div className="flex flex-col md:flex-row min-w-0 items-center gap-3">
-        <div className="relative size-20 shrink-0 overflow-hidden rounded-full border border-slate-200 bg-white p-2">
+      <div className="flex flex-col md:flex-row min-w-0 items-start gap-3">
+        <div className="relative size-20 shrink-0 overflow-hidden rounded-full  border border-slate-200 bg-white p-2">
           <Image
             src={image}
             alt={title}
@@ -23,7 +24,7 @@ const InfoCard = ({ title, description, image, duration, info, className }: Info
             className="object-contain p-1"
           />
         </div>
-        <div className={className}>
+        <div className={cn("",className)}>
           <h3 className="h3-bold font-semibold md:text-lg">{title}</h3>
           {info && <p className="text-sm text-gray-700">{info}</p>}
           <p className="text-xs text-muted-foreground">{description}</p>
