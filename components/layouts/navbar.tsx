@@ -92,9 +92,9 @@ const Navbar = () => {
             alt="logo image"
             width={32}
             height={32}
-            className="rounded-full hidden md:flex"
+            className="rounded-full"
           />
-          <span className="flex items-center md:hidden text-sm py-0.5 px-2 bg-foreground/25 text-white rounded-md"><ArrowLeft width={15} height={15} />Home</span>
+          {/* <span className="flex items-center md:hidden text-sm py-0.5 px-2 bg-foreground/25 text-white rounded-md"><ArrowLeft width={15} height={15} />Home</span> */}
         </Link>
 
         {/* Desktop Navbar*/}

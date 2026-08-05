@@ -31,26 +31,26 @@ const ContactPage = () => {
         className="flex gap-4 justify-between flex-col md:flex-row w-full h-full py-12 mx-auto px-5"
       >
         <div className="mx-auto">
-          <h2 className="mb-4 text-2xl font-semibold">Get in Touch</h2>
-          <p className="text-base text-gray-700">
+          <h2 className="mb-4 text-2xl font-semibold tracking-wide uppercase">Get in Touch</h2>
+          <p className="text-base text-gray-700 ">
             Looking forward to hearing from you!
           </p>
           <div className="flex flex-col gap-4 mt-4 ">
             <div className="flex items-center gap-4">
               <MapPinHouse color="#708090" />
-              <p className="text-base text-gray-500">
+              <p className="text-sm  tracking-tight text-gray-500">
                 Tochigi-ken, Ohtawara Yamanote
               </p>
             </div>
 
             <div className="flex items-center gap-4">
               <Mail color="#708090" />
-              <p className="text-base text-gray-500">suwalrajal57@gmail.com</p>
+              <p className="text-sm text-gray-500 tracking-tight">suwalrajal57@gmail.com</p>
             </div>
 
             <div className="flex items-center gap-4">
               <Phone color="#708090" />
-              <p className="text-base text-gray-500">070-9034-4803</p>
+              <p className="text-sm text-gray-500 tracking-tight">070-9034-4803</p>
             </div>
 
             {/* animated image */}

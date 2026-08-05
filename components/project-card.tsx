@@ -28,17 +28,19 @@ const ProjectCard = ({
     return (
         <Card className="overflow-hidden border-slate-200/70 bg-white/90 shadow-sm backdrop-blur-sm dark:border-slate-700/60 dark:bg-slate-900/80">
             <div className="flex flex-col md:flex-row">
+                {/* Image */}
                 <div className="relative h-60 w-full overflow-hidden md:h-auto md:w-[40%] ">
                     <Image
                         src={imageSrc}
                         alt={imageAlt}
                         fill
-                        className="object-cover transition-transform duration-500 hover:scale-105 p-3"
+                        className="object-cover transition-transform duration-500 hover:scale-105 p-2"
                         sizes="(max-width: 768px) 100vw, 40vw"
                         priority={false}
                     />
                 </div>
 
+                {/* Content */}
                 <div className="flex flex-1 flex-col gap-5 p-6 md:p-7">
                     <div className="space-y-2">
                         <h3 className="text-xl font-semibold tracking-tight text-slate-900 dark:text-slate-100">

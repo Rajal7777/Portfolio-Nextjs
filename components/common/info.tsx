@@ -10,9 +10,20 @@ type InfoProps = {
   info?: string;
 };
 
-const InfoCard = ({ title, description, image, duration, info, className }: InfoProps) => {
+const InfoCard = ({
+  title,
+  description,
+  image,
+  duration,
+  info,
+  className,
+}: InfoProps) => {
   return (
-    <section className={"flex items-center justify-between gap-4 align-top " + (className ?? "")}>
+    <section
+      className={
+        "flex items-center justify-between gap-4 align-top " + (className ?? "")
+      }
+    >
       <div className="flex flex-col md:flex-row min-w-0 items-start gap-3">
         <div className="relative size-20 shrink-0 overflow-hidden rounded-full  border border-slate-200 bg-white p-2">
           <Image
@@ -24,13 +35,15 @@ const InfoCard = ({ title, description, image, duration, info, className }: Info
             className="object-contain p-1"
           />
         </div>
-        <div className={cn("",className)}>
-          <h3 className="h3-bold font-semibold md:text-lg">{title}</h3>
+        <div className={cn("", className)}>
+          <h5 className="font-medium  text-foreground">{title}</h5>
           {info && <p className="text-sm text-gray-700">{info}</p>}
           <p className="text-xs text-muted-foreground">{description}</p>
         </div>
       </div>
-      <p className="rounded-full bg-slate-100 px-4 text-left text-gray-700 whitespace-nowrap">{duration}</p>
+      <p className="rounded-full bg-slate-100 px-4 text-left text-gray-700 whitespace-nowrap">
+        {duration}
+      </p>
     </section>
   );
 };

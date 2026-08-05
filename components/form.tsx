@@ -171,7 +171,7 @@ const ContactForm = ({title}: {title?: string}) => {
                 <Button
                   type="submit"
                   variant="default"
-                  className="w-full"
+                  className="w-full my-2"
                   form="contact-form"
                 >
                   {form.formState.isSubmitting ? "Submitting..." : "Submit"}
