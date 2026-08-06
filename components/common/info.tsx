@@ -36,12 +36,12 @@ const InfoCard = ({
           />
         </div>
         <div className={cn("", className)}>
-          <h5 className="font-medium  text-foreground">{title}</h5>
+          <h5 className="font-medium text-sm text-foreground">{title}</h5>
           {info && <p className="text-sm text-gray-700">{info}</p>}
           <p className="text-xs text-muted-foreground">{description}</p>
         </div>
       </div>
-      <p className="rounded-full bg-slate-100 px-4 text-left text-gray-700 whitespace-nowrap">
+      <p className="rounded-full text-sm bg-slate-100 px-4 text-left text-gray-700 whitespace-nowrap">
         {duration}
       </p>
     </section>

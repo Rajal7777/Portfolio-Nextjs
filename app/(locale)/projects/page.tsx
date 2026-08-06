@@ -1,21 +1,15 @@
-import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 import ProjectCard from "@/components/project-card";
 import { FadeIn } from "@/components/common/fade-in";
+import { projects } from "@/app/data/data";
 
 const ProjectPage = () => {
-  const projects = [
-    {
-      title: "Portfolio Contact Platform",
-      description:
-        "A modern portfolio project with multilingual support and a production-ready contact workflow. The contact form validates user input, stores data reliably, and sends clean email notifications.",
-      techStack: ["Next.js", "TypeScript", "Zod", "Prisma", "Tailwind CSS"],
-      imageSrc: "/images/Banner.png",
-      imageAlt: "Project preview placeholder",
-      liveProjectUrl: "https://example.com/live-project",
-      liveCodeUrl: "https://github.com/example/live-code",
-    },
-  ];
-
   return (
     <>
       <Breadcrumb>

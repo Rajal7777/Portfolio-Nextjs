@@ -19,7 +19,7 @@ const ContactPage = () => {
   return (
     <section className={cn("max-w-4xl mx-auto", raleway.className)}>
       <FadeIn>
-        <h2 className="mb-4 text-4xl pl-4 text-gray-800 bg-slate-100 dark:bg-slate-900 py-2 font-semibold playfair text-center">
+        <h2 className="text-2xl mb-4 md:text-4xl pl-4 text-gray-800 bg-slate-100 dark:bg-slate-900 py-2 font-semibold playfair text-center">
           Contact Me
         </h2>
       </FadeIn>
@@ -31,7 +31,7 @@ const ContactPage = () => {
         className="flex gap-4 justify-between flex-col md:flex-row w-full h-full py-12 mx-auto px-5"
       >
         <div className="mx-auto">
-          <h2 className="mb-4 text-2xl font-semibold tracking-wide uppercase">Get in Touch</h2>
+          <h2 className="text-2xl mb-4 md:text-2xl font-semibold tracking-wide uppercase">Get in Touch</h2>
           <p className="text-base text-gray-700 ">
             Looking forward to hearing from you!
           </p>

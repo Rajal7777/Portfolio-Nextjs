@@ -9,7 +9,7 @@ import Link from "next/link";
 import { ThemeToggle } from "../theme/theme-toggle";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { ArrowLeft, Languages, Mail, Menu, X } from "lucide-react";
+import {  Languages, Mail, Menu, X } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -85,8 +85,7 @@ const Navbar = () => {
     >
       <nav className="wrapper  h-16 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/"
-          className="flex items-center gap-2 font-medium">
+        <Link href="/" className="flex items-center gap-2 font-medium">
           <Image
             src="/icons/logo.png"
             alt="logo image"
@@ -104,8 +103,8 @@ const Navbar = () => {
               key={link.href}
               href={link.href}
               className={cn(
-                "font-medium transition-colors duration-100 hover:text-gray-600",
-                pathname.startsWith(link.href) && "text-muted-foreground",
+                "font-medium transition-colors duration-100 text-muted-foreground hover:text-gray-600",
+                pathname.startsWith(link.href) && "text-slate-900",
               )}
             >
               {link.label}

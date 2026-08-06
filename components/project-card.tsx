@@ -1,19 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
-
+import type { ProjectCardProps } from "@/types";
 import { Card } from "@/components/ui/card";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
-type ProjectCardProps = {
-    title: string;
-    description: string;
-    techStack: string[];
-    imageSrc: string;
-    imageAlt: string;
-    liveProjectUrl: string;
-    liveCodeUrl: string;
-};
+
 
 //group-hover/card:scale-105
 const ProjectCard = ({
@@ -24,9 +16,10 @@ const ProjectCard = ({
     imageAlt,
     liveProjectUrl,
     liveCodeUrl,
+    className
 }: ProjectCardProps) => {
     return (
-        <Card className="overflow-hidden border-slate-200/70 bg-white/90 shadow-sm backdrop-blur-sm dark:border-slate-700/60 dark:bg-slate-900/80">
+        <Card className={cn("overflow-hidden border-slate-200/70 bg-white/90 shadow-sm backdrop-blur-sm dark:border-slate-700/60 dark:bg-slate-900/80", className)}>
             <div className="flex flex-col md:flex-row">
                 {/* Image */}
                 <div className="relative h-60 w-full overflow-hidden md:h-auto md:w-[40%] ">

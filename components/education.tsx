@@ -14,7 +14,7 @@ const EducationPage = () => {
   return (
     <section className="flex flex-col mx-auto max-w-3xl px-4 py-8 text-slate-800 antialiased font-sans space-y-4">
       <FadeIn>
-        <h2 className="mb-4 text-4xl pl-4 text-gray-800 bg-slate-100 dark:bg-slate-900 py-2 font-semibold playfair">
+        <h2 className="text-2xl mb-4 md:text-4xl pl-4 text-gray-800 bg-slate-100 dark:bg-slate-900 py-2 font-semibold playfair text-center">
           {t("title")}
         </h2>
       </FadeIn>

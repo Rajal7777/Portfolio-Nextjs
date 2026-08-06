@@ -10,3 +10,15 @@ export interface MobileNavProps {
   isOpen: boolean;
   onClose: () => void;
 }
+
+
+export type ProjectCardProps = {
+    title: string;
+    description: string;
+    techStack: string[];
+    imageSrc: string;
+    imageAlt: string;
+    liveProjectUrl: string;
+    liveCodeUrl: string;
+    className?: string;
+};
