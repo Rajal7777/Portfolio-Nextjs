@@ -20,9 +20,9 @@ const EducationPage = () => {
       </FadeIn>
 
       <FadeIn delay={0.1}>
-        <h4 className="text-base  font-bold  px-2 text-muted-foreground uppercase leading-tight my-4 text-center">
-         Nepal
-        </h4>
+         <p className="text-base w-fit mx-auto font-bold  px-2 text-white leading-tight my-4 text-center bg-gray-950 rounded-lg py-2 ">
+          Nepal
+        </p>
       </FadeIn>
 
       <div className="space-y-4">
@@ -59,9 +59,9 @@ const EducationPage = () => {
       </div>
 
       <FadeIn delay={0.4}>
-        <h4 className="text-base  font-bold  px-2 text-muted-foreground uppercase leading-tight my-4 text-center">
+        <p className="text-base w-fit mx-auto font-bold  px-2 text-white leading-tight my-4 text-center bg-gray-950 rounded-lg py-2 ">
           Japan
-        </h4>
+        </p>
       </FadeIn>
 
       <div className="space-y-4">
