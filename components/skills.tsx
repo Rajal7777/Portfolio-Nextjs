@@ -90,7 +90,9 @@ function SkillsCard({ title, icon: Icon, skills }: Skills) {
 const SkillSection = () => {
   return (
     <FadeIn>
-      <section className={cn("max-w-4xl mx-auto text-center my-6", raleway.className)}>
+      <section
+        className={cn("max-w-4xl mx-auto text-center my-6", raleway.className)}
+      >
         <h2 className="mb-4 text-4xl pl-4 text-gray-800 bg-slate-100 dark:bg-slate-900 py-2 font-semibold playfair text-center">
           Skills{" "}
         </h2>
@@ -99,8 +101,10 @@ const SkillSection = () => {
         </h5>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-          {skills.map((skill) => (
-            <SkillsCard key={skill.title} {...skill} />
+          {skills.map((skill, index) => (
+            <FadeIn key={skill.title} delay={index * 0.18} x={-40} y={0} once>
+              <SkillsCard {...skill} />
+            </FadeIn>
           ))}
         </div>
       </section>

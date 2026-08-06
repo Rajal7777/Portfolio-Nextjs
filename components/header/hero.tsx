@@ -44,11 +44,11 @@ const HeroSection = async () => {
         className="order-1 flex shrink-0 justify-center lg:order-2"
       >
         <Image
-          src="/images/me.webp"
+          src="/images/hero1.png"
           alt={t("imageAlt")}
           width={320}
           height={400}
-          className="h-auto w-64 rounded-2xl object-cover sm:w-72 md:w-80 mb-4"
+          className="h-auto w-64 rounded-2xl object-cover sm:w-72 md:w-80 mb-4 bg-white"
           priority
         />
       </FadeIn>
