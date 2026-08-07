@@ -65,9 +65,11 @@ const ContactForm = ({title}: {title?: string}) => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.4 }}
         transition={{ duration: 0.4, ease: "easeOut" }}
-        className="my-6 text-center font-serif text-4xl"
+        className="text-center"
       >
+  <span className="inline-flex w-fit items-center rounded-sm border border-gray-200 bg-white px-6 py-2 font-serif text-4xl dark:border-gray-700 dark:bg-slate-900 my-8">          
         {title}
+        </span>
       </motion.h2>
       )}
       <motion.div

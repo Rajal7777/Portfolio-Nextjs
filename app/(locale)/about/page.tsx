@@ -1,6 +1,8 @@
 import { FadeIn } from "@/components/common/fade-in";
 import EducationPage from "@/components/education";
 import AboutMe from "@/components/header/aboutMe";
+import { getTranslations } from "next-intl/server";
+
 
 import {
   Breadcrumb,
@@ -16,7 +18,9 @@ export const metadata: Metadata = {
   description: "About me",
 };
 
-const AboutPage = () => {
+const AboutPage =async () => {
+  const t =  await getTranslations("AboutPage");
+
   return (
     <>
       <Breadcrumb>
@@ -38,16 +42,16 @@ const AboutPage = () => {
 
       <section className="mx-auto max-w-3xl px-4 py-8 text-slate-800 antialiased font-sans space-y-2">
         <FadeIn delay={0.1}>
-          <h2 className="mb-4 text-2xl md:text-4xl pl-4 text-gray-800 bg-slate-100 dark:bg-slate-900 py-2 font-semibold playfair text-center">
-            Visa Status and Qualifications
+          <h2 className="mb-4 text-2xl md:text-4xl pl-4 text-gray-800 bg-slate-100 dark:bg-slate-900 py-2 font-semibold playfair text-center  border border-gray-200 dark:border-gray-700 rounded-sm">
+         {t("visaQualification")}
           </h2>
 
           <div className="flex justify-between w-full px-1 my-6">
             <p className="font-medium text-sm uppercase leading-tight text-foreground">
-              Visa status
+              {t("visaStatus")}
             </p>
             <p className="font-medium text-sm uppercase leading-tight text-foreground">
-              Date of expiration
+              {t("visaExpiry")}
             </p>
           </div>
 

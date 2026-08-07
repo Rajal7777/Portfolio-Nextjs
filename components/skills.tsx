@@ -4,11 +4,12 @@ import { cn } from "@/lib/utils";
 import {
   Cable,
   ClipboardCheck,
-  Code2,
   Terminal,
   LucideIcon,
   Palette,
   Workflow,
+  CodeXml,
+  Layers,
 } from "lucide-react";
 import { Raleway } from "next/font/google";
 import { Card } from "./ui/card";
@@ -28,12 +29,12 @@ type Skills = {
 const skills: Skills[] = [
   {
     title: "Frameworks",
-    icon: Code2,
+    icon: Layers,
     skills: ["React", "Next.js", "Node.js", "Express.js"],
   },
   {
     title: "Languages",
-    icon: Code2,
+    icon: CodeXml,
     skills: ["JavaScript", "TypeScript", "HTML", "CSS"],
   },
   {
@@ -89,11 +90,11 @@ function SkillsCard({ title, icon: Icon, skills }: Skills) {
 
 const SkillSection = () => {
   return (
-    <FadeIn>
+    <FadeIn delay={0.10}>
       <section
-        className={cn("max-w-4xl mx-auto text-center my-6", raleway.className)}
+        className={cn("max-w-4xl mx-auto text-center my-6 sm:px-6 lg:px-8", raleway.className)}
       >
-        <h2 className="mb-4 text-2xl md:text-4xl pl-4 text-gray-800 bg-slate-100 dark:bg-slate-900 py-2 font-semibold playfair text-center">
+      <h2 className="text-2xl mb-4 md:text-4xl pl-4 text-gray-800 bg-slate-100 dark:bg-slate-900 py-2 font-semibold playfair text-center my-10  border border-gray-200 dark:border-gray-700 rounded-sm">
           Skills{" "}
         </h2>
         <h5 className="mb-4 text-xl md:text-2xl text-gray-600 dark:text-gray-300">

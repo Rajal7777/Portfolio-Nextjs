@@ -104,7 +104,7 @@ const Navbar = () => {
               href={link.href}
               className={cn(
                 "font-medium transition-colors duration-100 text-muted-foreground hover:text-gray-600",
-                pathname.startsWith(link.href) && "text-slate-900",
+                pathname.startsWith(link.href) && "text-dark dark:text-white",
               )}
             >
               {link.label}

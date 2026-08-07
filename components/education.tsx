@@ -14,7 +14,7 @@ const EducationPage = () => {
   return (
     <section className="flex flex-col mx-auto max-w-3xl px-4 py-8 text-slate-800 antialiased font-sans space-y-4">
       <FadeIn>
-        <h2 className="text-2xl mb-4 md:text-4xl pl-4 text-gray-800 bg-slate-100 dark:bg-slate-900 py-2 font-semibold playfair text-center">
+        <h2 className="text-2xl mb-4 md:text-4xl pl-4 text-gray-800 bg-slate-100 dark:bg-slate-900 py-2 font-semibold playfair text-center  border border-gray-200 dark:border-gray-700 rounded-sm">
           {t("title")}
         </h2>
       </FadeIn>
@@ -30,9 +30,10 @@ const EducationPage = () => {
           <InfoCard
             className={raleway.className}
             title="Bright Star English School"
+            info={t("schoolInfo")}
             description="Barahisthan, Bhaktapur"
             image="/images/school.png"
-            duration="2015 - 2019"
+            duration="1998 - 2011"
           />
         </FadeIn>
 
@@ -40,9 +41,10 @@ const EducationPage = () => {
           <InfoCard
             className={raleway.className}
             title="Khowpa Higher Secondary School"
+            info={t("highSchoolInfo")}
             description="Dekocha, Bhaktapur"
             image="/images/khwopa.png"
-            duration="2015 - 2019"
+            duration="2011 - 2014"
           />
         </FadeIn>
 
@@ -50,10 +52,10 @@ const EducationPage = () => {
           <InfoCard
             className={raleway.className}
             title="Orchid International College"
-            info="College of information Technology"
+            info={t("collegeInfo")}
             description="Lalitpur, Nepal"
             image="/images/orchid.png"
-            duration="2015 - 2019"
+            duration="2014 - 2015"
           />
         </FadeIn>
       </div>
@@ -72,7 +74,7 @@ const EducationPage = () => {
             info="Kurume Japanese Language School"
             description="Kurume, Fukuoka, Japan"
             image="/images/kurume.svg"
-            duration="2020 - 2022"
+            duration="2015 - 2017"
           />
         </FadeIn>
 
@@ -83,7 +85,7 @@ const EducationPage = () => {
             info="Kumamoto YMCA Business College"
             description="Kumamoto, Japan"
             image="/images/ymca.webp"
-            duration="2022 - 2024"
+            duration="2017 - 2019"
           />
         </FadeIn>
       </div>

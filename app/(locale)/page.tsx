@@ -10,7 +10,7 @@ export default function Home() {
     <>
       <HeroSection />
       <FadeIn className="max-w-4xl mx-auto mt-10 space-y-8 px-4 sm:px-6 lg:px-8">
-        <h2 className="text-2xl mb-4 md:text-4xl pl-4 text-gray-800 bg-slate-100 dark:bg-slate-900 py-2 font-semibold playfair text-center my-10">
+        <h2 className="text-2xl mb-4 md:text-4xl pl-4 text-gray-800 bg-slate-100 dark:bg-slate-900 py-2 font-semibold playfair text-center my-10 border border-gray-200 dark:border-gray-700 rounded-sm">
           Featured Projects
         </h2>
         {projects.map((project) => (
