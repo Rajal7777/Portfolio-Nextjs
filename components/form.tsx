@@ -35,7 +35,7 @@ const ContactForm = ({title}: {title?: string}) => {
     formState: { errors, isSubmitted, isSubmitSuccessful },
   } = form;
 
-  // console.log(form);
+ 
 
   //handle submit form
   const onSubmit = async (data: z.infer<typeof contactFormSchema>) => {
@@ -104,7 +104,7 @@ const ContactForm = ({title}: {title?: string}) => {
                           className={inputStyle}
                           id="name"
                           {...field}
-                          autoComplete="off"
+                          autoComplete="on"
                           placeholder="Enter your name"
                           required
                         />
