@@ -48,7 +48,7 @@ const HeroSection = async () => {
           alt={t("imageAlt")}
           width={320}
           height={400}
-          className="h-auto w-64 rounded-2xl object-cover sm:w-72 md:w-80 mb-4 bg-white"
+          className="w-full h-full mb-4 bg-white"
           priority
         />
       </FadeIn>

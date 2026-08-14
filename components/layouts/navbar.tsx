@@ -18,7 +18,7 @@ import {
 } from "../ui/dropdown-menu";
 
 import MobileMenu from "./mobile-menu";
-import { motion } from "framer-motion";
+
 
 const navLinks = [
   { href: "/about", label: "About", type: "section" },
@@ -72,11 +72,7 @@ const Navbar = () => {
   }, [mobileOpen]);
 
   return (
-    <motion.header
-      initial={{ opacity: 0, y: -14 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4, ease: "easeOut" }}
-      className={cn(
+    <div className={cn(
         "sticky top-0 z-120 border-gray-200 transition-all duration-200 dark:border-gray-900",
         scrolled
           ? "border-b bg-background/80 backdrop-blur-md shadow-sm"
@@ -223,7 +219,7 @@ const Navbar = () => {
           onClose={() => setMobileOpen(false)}
         />
       )}
-    </motion.header>
+    </div>
   );
 };
 

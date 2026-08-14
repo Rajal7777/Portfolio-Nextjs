@@ -110,7 +110,7 @@ If you see errors like:
 
 - `Unexpected end of string`
 - `Expected comma`
-- `Colon expected`
+- `Colon expected`   
 
 It usually means a JSON string contains a real line break.
 

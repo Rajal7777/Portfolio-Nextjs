@@ -25,7 +25,7 @@ const ProjectPage = () => {
         </BreadcrumbList>
       </Breadcrumb>
 
-      <FadeIn className="mx-auto mt-6 flex w-full max-w-5xl flex-col gap-6 pb-10">
+      <FadeIn className="mx-auto flex w-full max-w-5xl flex-col gap-6 pb-10">
         {projects.map((project) => (
           <ProjectCard
             key={project.title}

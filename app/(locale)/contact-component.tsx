@@ -6,7 +6,6 @@ import {
   Phone,
   Send,
   MessageCircleHeart,
-  Sticker,
 } from "lucide-react";
 import { Raleway } from "next/font/google";
 import { cn } from "@/lib/utils";
@@ -29,14 +28,11 @@ const ContactPage = () => {
           Contact Me
         </h2>
       </FadeIn>
-      <FadeIn
-        initial={{ opacity: 0, y: 12 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.4 }}
-        transition={{ duration: 0.4, ease: "easeOut" }}
-        className="flex gap-4 justify-between flex-col md:flex-row w-full h-full py-12 mx-auto px-5"
+
+      <div className="flex gap-4 justify-between flex-col md:flex-row w-full h-full py-12 mx-auto px-5"
       >
-        <div className="mx-auto">
+        {/* Contact Info: slides in from the left */}
+        <FadeIn x={-80} y={0} className="mx-auto">
           <h2 className="text-2xl mb-4 md:text-2xl font-semibold tracking-wide uppercase">
             Get in Touch
           </h2>
@@ -98,11 +94,13 @@ const ContactPage = () => {
               </div>
             </div>
           </div>
-        </div>
-        <div className="mx-auto w-full max-w-sm">
+        </FadeIn>
+
+        {/* Contact Form: slides in from the right */}
+        <FadeIn x={80} y={0} delay={0.10} className="mx-auto w-full max-w-sm">
           <ContactForm />
-        </div>
-      </FadeIn>
+        </FadeIn>
+      </div>
     </section>
   );
 };
