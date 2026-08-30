@@ -181,14 +181,11 @@
   .wrapper {
     width: 100%;
     max-width: 80rem;
-    padding: 1.5rem;
+    margin-inline: auto;
+    padding-inline: 5px;
 
     @media (width >= 48rem) {
       padding-inline: 2.5rem;
-    }
-
-    @media (width >= 64rem) {
-      margin-inline: auto;
     }
   }
 

@@ -9,9 +9,35 @@
   },
   "aboutMe": {
     "title": "About Me",
-    "description": "I've always been interested in technology and wanted to build practical technical skills. That curiosity led me to choose front-end development, where I enjoy creating responsive and user-friendly web applications.\n\nLearning during the AI era has made my journey much more effective. After building a strong foundation in web development, AI became a valuable learning partner, helping me understand new concepts, solve problems, and keep improving whenever I got stuck.\n\nMy goal over the next 3-5 years is to work alongside experienced developers, continue growing as a professional, and become an AI-integrated full-stack web developer.",
+    "description": "I've always been interested in technology and wanted to develop professional skills that could lead to a long-term career. I became particularly interested in frontend development because it allows me to create web services and applications that people can actually use, which motivated me to start learning web development seriously.\n\nI currently focus on HTML/CSS, JavaScript, TypeScript, React, and Next.js. Rather than simply acquiring knowledge, I believe in applying what I learn by building real-world web applications. Through personal projects, I have developed a full-stack-like web application with features such as authentication, database management, shopping cart functionality, and payment integration. From planning and implementation to improvement, I have learned the importance of user-focused UI/UX design and maintainable, reusable component architecture.\n\nWhen I encounter unfamiliar technologies or technical challenges, I make it a habit to research, learn, implement, and verify my understanding through practical development. I also actively use AI as a learning partner, not simply to get answers, but to understand how code works, compare different approaches, and gain insights into problem-solving.\n\nI completed a comprehensive frontend development bootcamp through Udemy, where I studied HTML, CSS, JavaScript, TypeScript, React, and Next.js. Through the course and hands-on projects, I developed a solid foundation in modern frontend development and responsive web application development.\n\nI also have basic knowledge of state management and data-fetching libraries such as Zustand, Redux, and TanStack Query, and have explored how they can be used to manage application state and server-side data efficiently.\n\nIn addition, I completed a server-side development bootcamp focused on Node.js and Express, where I learned the fundamentals of backend development and API development. I also have experience using Git and GitHub for version control and project management.\n\nI continue to strengthen these skills through personal projects, applying what I learn to real-world web application development.\n\nGoing forward, I want to further develop my expertise as a frontend engineer through practical experience while deepening my knowledge of backend development, databases, and API design. My goal is to become a full-stack web engineer who can work across both frontend and backend development while effectively utilizing AI as a development and learning partner.\n\nI will continue to take on new technologies and challenges with the learning mindset and persistence I have developed so far. I also hope to utilize the communication and teamwork skills I gained from my previous experience to collaborate effectively with team members and contribute to building high-quality web services that provide real value to users.",
+    "skillsTitle": "Core Skills",
+    "frontendLabel": "Frontend",
+    "stateManagementAndDataFetchingLabel": "State Management & Data Fetching",
+    "backendLabel": "Backend",
+    "toolsAndVersionControlLabel": "Tools & Version Control",
+    "frontend": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "TypeScript",
+      "React",
+      "Next.js"
+    ],
+    "stateManagementAndDataFetching": [
+      "Zustand",
+      "Redux",
+      "TanStack Query"
+    ],
+    "backend": [
+      "Node.js",
+      "Express"
+    ],
+    "toolsAndVersionControl": [
+      "Git",
+      "GitHub"
+    ],
     "courseTitle": "Web Development Bootcamp",
-    "courseDescription": "I have a strong foundation in web development, having completed a comprehensive 6-month course that covered HTML, CSS, JavaScript, React.js, Next.js, and Tailwind CSS. This program provided me with the skills and knowledge necessary to build modern, responsive web applications."
+    "courseDescription": "I completed a comprehensive frontend development bootcamp through Udemy, where I studied HTML, CSS, JavaScript, TypeScript, React, and Next.js. Through the course and hands-on projects, I developed a solid foundation in modern frontend development and responsive web application development.\n\nI also have basic knowledge of state management and data-fetching libraries such as Zustand, Redux, and TanStack Query, and have explored how they can be used to manage application state and server-side data efficiently.\n\nIn addition, I completed a server-side development bootcamp focused on Node.js and Express, where I learned the fundamentals of backend development and API development. I also have experience using Git and GitHub for version control and project management.\n\nI continue to strengthen these skills through personal projects, applying what I learn to real-world web application development."
   },
   "educationPage": {
     "title": "Education",
@@ -21,7 +47,7 @@
   },
   "AboutPage": {
     "visaQualification": "Visa Status and Qualifications",
-    "visaStatus": "Visa status",
-    "visaExpiry": " Date of expiration"
+    "visaStatus": "Visa Status",
+    "visaExpiry": "Date of Expiration"
   }
 }
