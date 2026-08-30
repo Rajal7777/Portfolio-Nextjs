@@ -31,8 +31,9 @@ const ProjectPage = () => {
             key={project.title}
             title={project.title}
             description={project.description}
+            features={project.features}
             techStack={project.techStack}
-            imageSrc={project.imageSrc}
+            images={project.images}
             imageAlt={project.imageAlt}
             liveProjectUrl={project.liveProjectUrl}
             liveCodeUrl={project.liveCodeUrl}

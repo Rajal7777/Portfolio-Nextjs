@@ -3,9 +3,10 @@
     "hero": {
       "stack": "(React.js / Next.js)",
       "description": "I'm a Frontend Developer with a strong foundation in modern web development and a passion for building responsive, user-friendly, and high-performance web applications. I specialize in JavaScript, TypeScript, React, Next.js, and Tailwind CSS, and have hands-on experience developing full-stack applications using Node.js, Prisma, and PostgreSQL. Through personal projects, including a full-featured e-commerce application and portfolio website, I've implemented authentication, database management, payment integration, email functionality, and responsive UI design. I enjoy solving real-world problems, continuously improving my technical skills, and learning new technologies to write clean, maintainable, and scalable code. My goal is to contribute to a collaborative development team while continuing to grow as a full-stack engineer.",
-      "resumeCta": "Download Resume",
-      "imageAlt": "Portrait image for the portfolio hero section"
-    }
+    "resumeCta": "Download Resume",
+    "resumeDownloading": "Downloading...",
+    "imageAlt": "Portrait image for the portfolio hero section"
+  }
   },
   "aboutMe": {
     "title": "About Me",

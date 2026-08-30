@@ -13,17 +13,17 @@ export default function Home() {
         <h2 className="text-2xl mb-4 md:text-4xl  text-gray-800 bg-slate-100 dark:bg-slate-900 py-2 font-semibold playfair text-center my-10 border border-gray-200 dark:border-gray-700 rounded-sm">
           Featured Projects
         </h2>
-        {projects.map((project) => (
+       {projects.map((project) => (
           <ProjectCard
             key={project.title}
             title={project.title}
             description={project.description}
+            features={project.features}
             techStack={project.techStack}
-            imageSrc={project.imageSrc}
+            images={project.images}
             imageAlt={project.imageAlt}
             liveProjectUrl={project.liveProjectUrl}
             liveCodeUrl={project.liveCodeUrl}
-            className="my-8"
           />
         ))}
       </FadeIn>

@@ -37,7 +37,7 @@ const ContactPage = () => {
             Get in Touch
           </h2>
           <p className="text-base text-gray-700 ">
-            Looking forward to hearing from you!
+            Looking forward to hear from you!
           </p>
           <div className="flex flex-col gap-4 mt-4 ">
             <div className="flex items-center gap-4">

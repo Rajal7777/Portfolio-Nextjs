@@ -30,7 +30,6 @@ const InfoCard = ({
             src={image}
             alt={title}
             fill
-            quality={100}
             sizes="80px"
             className="object-contain p-1"
           />

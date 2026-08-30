@@ -15,8 +15,9 @@ export interface MobileNavProps {
 export type ProjectCardProps = {
     title: string;
     description: string;
+    features?: string[];
     techStack: string[];
-    imageSrc: string;
+    images: string[];
     imageAlt: string;
     liveProjectUrl: string;
     liveCodeUrl: string;

@@ -74,8 +74,6 @@ const ContactForm = ({ title }: { title?: string }) => {
         </CardHeader>
         <CardContent>
           <form
-            method="POST"
-            id="contact-form"
             onSubmit={form.handleSubmit(onSubmit)}
             className="flex flex-col gap-4"
           >
@@ -155,14 +153,14 @@ const ContactForm = ({ title }: { title?: string }) => {
                   );
                 }}
               />
-            </FieldGroup>
+            </FieldGroup>   
 
             <div>
               <Button
                 type="submit"
                 variant="default"
                 className="w-full my-2"
-                form="contact-form"
+                disabled={form.formState.isSubmitting}
               >
                 {form.formState.isSubmitting ? "Submitting..." : "Submit"}
               </Button>
