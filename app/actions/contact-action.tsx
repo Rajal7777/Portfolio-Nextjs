@@ -6,12 +6,13 @@ import { z } from "zod";
 import { resend } from "@/lib/resend";
 import { contactFormSchema } from "@/lib/validations";
 import ContactEmail from "../emails/contact-email";
+import AutoReplyEmail from "../emails/auto-reply-email";
 
 export async function sendContactEmail(
   data: z.infer<typeof contactFormSchema>,
 ) {
   try {
-    // 1. Validate form data on the server
+    // Validate form data on the server
     const result = contactFormSchema.safeParse(data);
 
     if (!result.success) {
@@ -23,7 +24,7 @@ export async function sendContactEmail(
 
     const { name, email, message } = result.data;
 
-    // 2. Check required environment variable
+    // Check required environment variable
     const contactEmail = process.env.CONTACT_EMAIL;
 
     if (!contactEmail) {
@@ -37,7 +38,7 @@ export async function sendContactEmail(
       };
     }
 
-    // 3. Render React Email template
+    // Render React Email template
     const html = await render(
       <ContactEmail
         name={name}
@@ -46,7 +47,7 @@ export async function sendContactEmail(
       />,
     );
 
-    // 4. Send email through Resend
+    // Send email through Resend
     const { error } = await resend.emails.send({
       from: "Portfolio <onboarding@resend.dev>",
       to: contactEmail,
@@ -55,7 +56,7 @@ export async function sendContactEmail(
       html,
     });
 
-    // 5. Handle Resend error
+    // Handle Resend error
     if (error) {
       console.error("[Contact Email Error]", error);
 
@@ -63,6 +64,22 @@ export async function sendContactEmail(
         success: false,
         message: "Failed to send email. Please try again later.",
       };
+    }
+
+    // Send auto-reply to the sender (failure here shouldn't fail the whole action)
+    const autoReplyHtml = await render(
+      <AutoReplyEmail name={name} message={message} />,
+    );
+
+    const { error: autoReplyError } = await resend.emails.send({
+      from: "Portfolio <onboarding@resend.dev>",
+      to: email,
+      subject: "Thanks for contacting me!",
+      html: autoReplyHtml,
+    });
+
+    if (autoReplyError) {
+      console.error("[Auto Reply Email Error]", autoReplyError);
     }
 
     return {
