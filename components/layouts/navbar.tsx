@@ -87,7 +87,7 @@ const Navbar = () => {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 font-medium">
           <Image
-            src="/icons/logo.png"
+            src="/logo.png"
             alt="logo image"
             width={32}
             height={32}

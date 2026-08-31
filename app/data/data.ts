@@ -51,7 +51,7 @@ export const projects = [
     ],
     images: ["/project/portfolio1.png"],
     imageAlt: "Personal portfolio website preview",
-    liveProjectUrl: "",
+      liveProjectUrl: "https://portfolio-nextjs-ten-rose.vercel.app",
     liveCodeUrl: "",
   },
 ];

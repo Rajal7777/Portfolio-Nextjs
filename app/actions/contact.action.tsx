@@ -6,6 +6,15 @@ import { z } from "zod";
 import { resend } from "@/lib/resend";
 import { contactFormSchema } from "@/lib/validations";
 import ContactEmail from "../emails/contact-email";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  metadataBase: new URL("https://portfolio-nextjs-ten-rose.vercel.app"),
+  title: "Rajal Suwal | Frontend Developer",
+  description:
+    "Frontend Developer specializing in React, Next.js, and TypeScript.",
+};
+
 
 export async function sendContactEmail(
   data: z.infer<typeof contactFormSchema>,
