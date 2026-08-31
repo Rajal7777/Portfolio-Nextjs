@@ -23,9 +23,10 @@ const ProjectCard = ({
   const [current, setCurrent] = useState(0);
 
   const t = useTranslations("projectCard");
+  const safeFeatures = Array.isArray(features) ? features : [];
 
   return (
-    <FadeIn delay={0.25}>
+    <FadeIn delay={0.05}>
       <Card
         className={cn(
           "overflow-hidden border-slate-200/70 bg-white/90 shadow-sm backdrop-blur-sm dark:border-slate-700/60 dark:bg-slate-900/80 mt-2",
@@ -55,15 +56,15 @@ const ProjectCard = ({
                     key={index}
                     type="button"
                     onClick={() => setCurrent(index)}
-                      aria-label={`Show project image ${index + 1}`}
-          aria-current={current === index ? "true" : undefined}
+                    aria-label={`Show project image ${index + 1}`}
+                    aria-current={current === index ? "true" : undefined}
                     className={cn(
                       "relative h-16 w-20 shrink-0 overflow-hidden rounded-md border transition-all duration-200",
                       current === index
                         ? "border-sky-500 ring-2 ring-sky-200 dark:ring-sky-900"
                         : "border-slate-200 hover:border-slate-300 dark:border-slate-700 dark:hover:border-slate-500",
                     )}
-                 >
+                  >
                     <Image
                       src={image}
                       alt=""
@@ -88,13 +89,13 @@ const ProjectCard = ({
               </p>
             </div>
 
-            {features && features.length > 0 && (
+            {safeFeatures.length > 0 && (
               <div className="space-y-2">
                 <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">
                   {t("features")}
                 </p>
                 <div className="flex flex-wrap gap-2">
-                  {features.map((feature) => (
+                  {safeFeatures.map((feature) => (
                     <span
                       key={feature}
                       className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-700 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200"

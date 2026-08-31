@@ -91,6 +91,8 @@ const Navbar = () => {
             alt="logo image"
             width={32}
             height={32}
+            priority
+            unoptimized
             className="rounded-full"
           />
         </Link>

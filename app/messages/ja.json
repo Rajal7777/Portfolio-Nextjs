@@ -16,27 +16,10 @@
     "stateManagementAndDataFetchingLabel": "状態管理・データ取得",
     "backendLabel": "バックエンド",
     "toolsAndVersionControlLabel": "ツール・バージョン管理",
-    "frontend": [
-      "HTML",
-      "CSS",
-      "JavaScript",
-      "TypeScript",
-      "React",
-      "Next.js"
-    ],
-    "stateManagementAndDataFetching": [
-      "Zustand",
-      "Redux",
-      "TanStack Query"
-    ],
-    "backend": [
-      "Node.js",
-      "Express"
-    ],
-    "toolsAndVersionControl": [
-      "Git",
-      "GitHub"
-    ],
+    "frontend": ["HTML", "CSS", "JavaScript", "TypeScript", "React", "Next.js"],
+    "stateManagementAndDataFetching": ["Zustand", "Redux", "TanStack Query"],
+    "backend": ["Node.js", "Express"],
+    "toolsAndVersionControl": ["Git", "GitHub"],
     "courseTitle": "Web Development Bootcamp",
     "courseDescription": "Udemyのフロントエンド開発ブートキャンプを修了し、HTML、CSS、JavaScript、TypeScript、React、Next.jsを中心に学習しました。講座や実践的なプロジェクトを通して、モダンなフロントエンド開発やレスポンシブなWebアプリケーションを構築するための基礎を身につけました。\n\nまた、状態管理やデータ取得に関する知識として、Zustand、Redux、TanStack Queryなどのライブラリについても学習しており、アプリケーションの状態やサーバー側のデータを効率的に管理するための基本的な知識があります。\n\nさらに、Node.jsとExpressを中心としたサーバーサイド開発のブートキャンプも受講し、バックエンド開発やAPI開発の基礎について学びました。加えて、GitやGitHubを使用したバージョン管理や開発プロジェクトの管理についても学習しています。\n\n現在も個人開発を通してこれらの知識を実際のWebアプリケーションに活用しながら、継続的に技術力を高めています。"
   },
@@ -51,18 +34,44 @@
     "visaStatus": "在留資格",
     "visaExpiry": "有効期限"
   },
-    "projectCard": {
-  "features": "機能",
-  "techStack": "技術スタック",
-  "liveProject": "ライブプロジェクト",
-  "liveCode": "ライブコード",
-  "showProjectImage": "プロジェクト画像を表示"
-},
- "contactPage": {
+  "projectCard": {
+    "features": "機能",
+    "techStack": "技術スタック",
+    "liveProject": "ライブプロジェクト",
+    "liveCode": "ライブコード",
+    "showProjectImage": "プロジェクト画像を表示"
+  },
+  "contactPage": {
     "title": "お問い合わせ",
     "getInTouch": "ご連絡ください",
     "description": "ご連絡をお待ちしております！",
     "location": "栃木県、日本",
     "email": "suwalrajal57@gmail.com"
+  },
+  "projects": {
+    "ecommerce": {
+      "description": "認証、商品管理、カート・在庫管理、チェックアウト、Stripe・PayPal決済、注文管理、メール通知などの機能を実装したフルスタックのECサイトです。",
+      "features": [
+        "NextAuthによる認証・認可",
+        "商品検索・フィルタリング・ページネーション",
+        "カート・在庫管理",
+        "Stripe・PayPalによる決済機能",
+        "注文管理・注文状況の追跡",
+        "管理者ダッシュボード・商品管理",
+        "Resendによるメール通知機能"
+      ]
+    },
+    "portfolio": {
+      "description": "自身のプロジェクト、技術スキル、学歴、開発経験などを紹介するために制作した、モダンでレスポンシブなポートフォリオサイトです。英語・日本語の多言語対応、レスポンシブUI、ダークモード、アニメーション、履歴書のダウンロード機能、バリデーション付きのお問い合わせフォームとメール通知機能を実装しています。",
+      "features": [
+        "英語・日本語の多言語対応",
+        "スマートフォン・タブレット・デスクトップ対応のレスポンシブデザイン",
+        "ダークモード・ライトモード",
+        "Framer Motionによるスムーズなアニメーション",
+        "履歴書・職務経歴書のダウンロード機能",
+        "React Hook Form・Zodによるお問い合わせフォームのバリデーション",
+        "Resendによるメール通知機能"
+      ]
+    }
   }
 }

@@ -12,7 +12,7 @@ const AboutMe = async () => {
     const t = await getTranslations("aboutMe");
 
     return (
-        <main className="mx-auto max-w-4xl px-4 py-8 text-slate-800 antialiased font-sans">
+        <main className="mx-auto max-w-4xl px-1 py-8 text-slate-800 antialiased font-sans">
             <FadeIn>
                 <h2 className="mb-4 text-2xl md:text-4xl text-gray-800 bg-slate-100 dark:bg-slate-900 py-2 font-semibold playfair text-center border border-gray-200 dark:border-gray-700 rounded-sm">
                     {t("title")}
@@ -26,12 +26,12 @@ const AboutMe = async () => {
             </FadeIn>
 
             <FadeIn delay={0.2}>
-                <div className="mt-10 rounded-xl border border-slate-200 bg-slate-50/70 p-5 shadow-sm dark:border-slate-700 dark:bg-slate-900/60">
+                <div className="mt-10 rounded-xl border border-slate-200 bg-slate-50/70 p-1 shadow-sm dark:border-slate-700 dark:bg-slate-900/60">
                     <h3 className="mb-5 text-center text-xl font-semibold text-slate-800 dark:text-slate-100 md:text-2xl">
                         {t("skillsTitle")}
                     </h3>
 
-                    <div className="grid gap-4 md:grid-cols-2">
+                    <div className="grid gap-4 p-1 md:grid-cols-2">
                         {skillGroups.map((group) => {
                             const items = t.raw(group.key) as string[];
 
@@ -67,7 +67,7 @@ const AboutMe = async () => {
             </FadeIn>
 
             <FadeIn delay={0.4}>
-                <p className="mt-6 whitespace-pre-line text-xs leading-8 p-2 text-foreground md:text-base">
+                <p className="mt-6 whitespace-pre-line text-xs leading-8 p-1 text-foreground md:text-base">
                     {t("courseDescription")}
                 </p>
             </FadeIn>

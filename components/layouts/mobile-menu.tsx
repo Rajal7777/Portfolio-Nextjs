@@ -17,7 +17,7 @@ const MobileMenu = ({ navLinks, isOpen, onClose }: MobileNavProps) => {
     <AnimatePresence>
       {isOpen && (
         <div
-          className="fixed inset-0 z-120 md:hidden"
+          className="fixed inset-0 z-55 md:hidden"
           role="dialog"
           aria-modal="true"
         >
@@ -42,10 +42,10 @@ const MobileMenu = ({ navLinks, isOpen, onClose }: MobileNavProps) => {
               damping: 28,
             }}
             onClick={(e) => e.stopPropagation()}
-            className="absolute top-0 right-0 h-screen w-[85vw] max-w-sm bg-background shadow-2xl flex flex-col"
+            className="fixed right-0 top-0 flex h-dvh w-[85vw] max-w-sm flex-col overflow-hidden bg-background shadow-2xl"
           >
             {/* Header */}
-            <div className="flex items-center justify-between border-b  px-5 py-4">
+            <div className="flex shrink-0 items-center justify-between border-b border-border px-5 py-4">
               <div>
                 <h2 className="text-muted-foreground text-lg font-semibold leading-7">
                   Menu
@@ -64,7 +64,7 @@ const MobileMenu = ({ navLinks, isOpen, onClose }: MobileNavProps) => {
                     variant: "ghost",
                     size: "icon",
                   }),
-                  "h-10 w-10 focus:outline-none"
+                  "h-10 w-10 focus:outline-none",
                 )}
               >
                 <X className="h-5 w-5" />
@@ -74,24 +74,28 @@ const MobileMenu = ({ navLinks, isOpen, onClose }: MobileNavProps) => {
             {/* Navigation */}
             <nav
               aria-label="Mobile navigation"
-              className="flex-1 space-y-1.5 overflow-y-auto overscroll-contain px-3 py-4"
+              className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-3 py-4"
             >
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={onClose}
-                  className={cn(
-                    "flex items-center rounded-xl px-2 py-1 text-sm md:text-base font-light  transition-colors duration-200",
-                    pathname.startsWith(link.href)
-                      ? "bg-accent text-foreground"
-                      : "text-foreground/90 hover:bg-accent/70 hover:text-foreground"
-                  )}
-                >
-                  {link.label}
-                  <ArrowRight className="ml-auto h-4 w-4" />
-                </Link>
-              ))}
+              {" "}
+              <div className="space-y-1.5">
+                {" "}
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={onClose}
+                    className={cn(
+                      "flex items-center rounded-xl px-3 py-3 text-sm font-medium transition-colors duration-200",
+                      pathname.startsWith(link.href)
+                        ? "bg-accent text-foreground"
+                        : "text-foreground/90 hover:bg-accent/70 hover:text-foreground",
+                    )}
+                  >
+                    {" "}
+                    {link.label} <ArrowRight className="ml-auto h-4 w-4" />{" "}
+                  </Link>
+                ))}{" "}
+              </div>{" "}
             </nav>
 
             {/* Footer */}
@@ -107,7 +111,7 @@ const MobileMenu = ({ navLinks, isOpen, onClose }: MobileNavProps) => {
                       variant: "ghost",
                       size: "icon",
                     }),
-                    "h-10 w-10"
+                    "h-10 w-10",
                   )}
                 >
                   <Image
@@ -128,7 +132,7 @@ const MobileMenu = ({ navLinks, isOpen, onClose }: MobileNavProps) => {
                       variant: "ghost",
                       size: "icon",
                     }),
-                    "h-10 w-10"
+                    "h-10 w-10",
                   )}
                 >
                   <Image
@@ -147,7 +151,7 @@ const MobileMenu = ({ navLinks, isOpen, onClose }: MobileNavProps) => {
                       variant: "ghost",
                       size: "icon",
                     }),
-                    "h-10 w-10"
+                    "h-10 w-10",
                   )}
                 >
                   <Mail className="h-5 w-5" />

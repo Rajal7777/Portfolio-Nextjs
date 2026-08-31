@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -8,8 +10,19 @@ import {
 import ProjectCard from "@/components/project-card";
 import { FadeIn } from "@/components/common/fade-in";
 import { projects } from "@/app/data/data";
+import { useTranslations } from "next-intl";
 
 const ProjectPage = () => {
+  const t = useTranslations("projects");
+
+  const localizedProjects = projects.map((project) => ({
+    ...project,
+    description: t(`${project.id}.description`),
+    features: Array.isArray(t.raw(`${project.id}.features`))
+      ? (t.raw(`${project.id}.features`) as string[])
+      : [],
+  }));
+
   return (
     <>
       <Breadcrumb>
@@ -26,7 +39,7 @@ const ProjectPage = () => {
       </Breadcrumb>
 
       <FadeIn className="mx-auto flex w-full max-w-5xl flex-col gap-6 pb-10">
-        {projects.map((project) => (
+        {localizedProjects.map((project) => (
           <ProjectCard
             key={project.title}
             title={project.title}
