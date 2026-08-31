@@ -11,7 +11,7 @@ export async function sendContactEmail(
   data: z.infer<typeof contactFormSchema>,
 ) {
   try {
-    // Validate form data
+    // 1. Validate form data on the server
     const result = contactFormSchema.safeParse(data);
 
     if (!result.success) {
@@ -37,7 +37,7 @@ export async function sendContactEmail(
       };
     }
 
-    // Render React Email template
+    // 3. Render React Email template
     const html = await render(
       <ContactEmail
         name={name}
@@ -46,7 +46,7 @@ export async function sendContactEmail(
       />,
     );
 
-    // Send email
+    // 4. Send email through Resend
     const { error } = await resend.emails.send({
       from: "Portfolio <onboarding@resend.dev>",
       to: contactEmail,
@@ -55,6 +55,7 @@ export async function sendContactEmail(
       html,
     });
 
+    // 5. Handle Resend error
     if (error) {
       console.error("[Contact Email Error]", error);
 
