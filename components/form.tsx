@@ -8,7 +8,7 @@ import { contactFormSchema } from "@/lib/validations";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { Field, FieldError, FieldGroup, FieldLabel } from "./ui/field";
 import { Button } from "./ui/button";
-import { sendContactEmail } from "@/app/actions/contact.action";
+import { sendContactEmail } from "@/app/actions/contact-action";
 import { toast } from "sonner";
 
 const defaultValues = {
@@ -45,7 +45,7 @@ const ContactForm = () => {
   };
 
   return (
-    <Card className="w-full sm:max-w-md md:max-w-4xl mx-auto space-y-8 border-none">
+    <Card className="w-full sm:max-w-md md:max-w-4xl mx-auto space-y-8 border-none mt-4">
       <CardHeader>
         <CardTitle className="text-center text-2xl font-semibold">
           Contact Me
