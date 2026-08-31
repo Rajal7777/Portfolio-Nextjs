@@ -9,7 +9,7 @@ import Link from "next/link";
 import { ThemeToggle } from "../theme/theme-toggle";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import {  Languages, Mail, Menu, X } from "lucide-react";
+import { Languages, Mail, Menu, X } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -19,11 +19,10 @@ import {
 
 import MobileMenu from "./mobile-menu";
 
-
 const navLinks = [
-  { href: "/about", label: "About", type: "section" },
-  { href: "/projects", label: "Projects", type: "page" },
-  { href: "/contact", label: "Contact", type: "page" },
+  { href: "/about", label: "About" },
+  { href: "/projects", label: "Projects" },
+  { href: "/contact", label: "Contact" },
 ];
 
 const Navbar = () => {
@@ -56,30 +55,35 @@ const Navbar = () => {
   useEffect(() => {
     if (!mobileOpen) return;
 
+    const previousOverflow = document.body.style.overflow;
+
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         setMobileOpen(false);
       }
     };
 
-    document.body.style.overflow = mobileOpen ? "hidden" : "";
+    document.body.style.overflow = "hidden";
     window.addEventListener("keydown", onKeyDown);
 
     return () => {
-      document.body.style.overflow = "";
+      document.body.style.overflow = previousOverflow;
       window.removeEventListener("keydown", onKeyDown);
     };
   }, [mobileOpen]);
 
   return (
-    <div className={cn(
-        "sticky top-0 z-120 border-gray-200 transition-all duration-200 dark:border-gray-900",
+    <header
+      className={cn(
+        "sticky top-0 z-50 border-gray-200 transition-all duration-200 dark:border-gray-900",
         scrolled
           ? "border-b bg-background/80 backdrop-blur-md shadow-sm"
           : "bg-transparent",
       )}
     >
-      <nav className="wrapper  h-16 flex items-center justify-between">
+      <nav
+        id="mobile-navigation"
+        className="wrapper  h-16 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 font-medium">
           <Image
@@ -89,23 +93,29 @@ const Navbar = () => {
             height={32}
             className="rounded-full"
           />
-          {/* <span className="flex items-center md:hidden text-sm py-0.5 px-2 bg-foreground/25 text-white rounded-md"><ArrowLeft width={15} height={15} />Home</span> */}
         </Link>
 
         {/* Desktop Navbar*/}
         <div className="hidden md:flex items-center space-x-8 ">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={cn(
-                "font-medium transition-colors duration-100 text-muted-foreground hover:text-gray-600",
-                pathname.startsWith(link.href) && "text-dark dark:text-white",
-              )}
-            >
-              {link.label}
-            </Link>
-          ))}
+          {navLinks.map((link) => {
+            const isActive =
+              pathname === link.href ||
+              pathname.startsWith(`${link.href}/`);
+
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={cn(
+                  "font-medium text-muted-foreground transition-colors",
+                  isActive && "text-foreground",
+                  !isActive && "hover:text-foreground",
+                )}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
         </div>
 
         {/* Toggle btn & Social icons*/}
@@ -113,7 +123,7 @@ const Navbar = () => {
           <a
             href="https://github.com/Rajal7777"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             aria-label="GitHub"
             className={cn(
               buttonVariants({ variant: "ghost", size: "icon" }),
@@ -131,7 +141,7 @@ const Navbar = () => {
           <a
             href="https://www.linkedin.com/in/rajal-suwal-158986165/"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             aria-label="Linkedin"
             className={cn(
               buttonVariants({ variant: "ghost", size: "icon" }),
@@ -140,7 +150,7 @@ const Navbar = () => {
           >
             <Image
               src="/icons/linkedin.png"
-              alt="github logo"
+              alt="linkedin logo"
               width={30}
               height={30}
             />
@@ -148,8 +158,7 @@ const Navbar = () => {
 
           <a
             href="mailto:suwalrajal57@gmail.com"
-            target="_blank"
-            rel="noreferrer"
+            aria-label="Email Rajal Suwal"
             className={cn(
               buttonVariants({ variant: "ghost", size: "icon" }),
               "hidden md:flex h-10 w-10",
@@ -194,6 +203,8 @@ const Navbar = () => {
           <button
             type="button"
             aria-label={mobileOpen ? "Close mobile menu" : "Open mobile menu"}
+            aria-expanded={mobileOpen}
+            aria-controls="mobile-navigation"
             className={cn(
               buttonVariants({ variant: "ghost", size: "icon" }),
               "h-10 w-10 md:hidden",
@@ -219,7 +230,7 @@ const Navbar = () => {
           onClose={() => setMobileOpen(false)}
         />
       )}
-    </div>
+    </header>
   );
 };
 

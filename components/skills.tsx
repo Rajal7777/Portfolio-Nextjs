@@ -8,8 +8,8 @@ import {
   LucideIcon,
   Palette,
   Workflow,
-  CodeXml,
   Layers,
+  Server,
 } from "lucide-react";
 import { Raleway } from "next/font/google";
 import { Card } from "./ui/card";
@@ -20,27 +20,27 @@ const raleway = Raleway({
   weight: "700",
 });
 
-type Skills = {
+type SkillCategory = {
   title: string;
   icon: LucideIcon;
   skills: string[];
 };
 
-const skills: Skills[] = [
+const skills: SkillCategory[] = [
   {
-    title: "Frameworks",
+    title: "Frontend",
     icon: Layers,
-    skills: ["React", "Next.js", "Node.js", "Express.js"],
+    skills: ["HTML", "CSS", "JavaScript", "TypeScript", "React", "Next.js"],
   },
   {
-    title: "Languages",
-    icon: CodeXml,
-    skills: ["JavaScript", "TypeScript", "HTML", "CSS"],
+    title: "Backend",
+    icon: Server,
+    skills: ["Node.js", "Express.js"],
   },
   {
-    title: "State Management",
+    title: "State & Data",
     icon: Workflow,
-    skills: ["Redux", "Zustand", "Context API"],
+    skills: ["Zustand", "Context API", "TanStack Query"],
   },
   {
     title: "Forms & Validation",
@@ -48,42 +48,42 @@ const skills: Skills[] = [
     skills: ["React Hook Form", "Zod"],
   },
   {
-    title: "UI & Design",
+    title: "UI & Animation",
     icon: Palette,
-    skills: ["Tailwind CSS", "Shadcn UI", "Framer Motion"],
+    skills: ["Tailwind CSS", "shadcn/ui", "Framer Motion"],
   },
   {
-    title: "Data & Orms",
+    title: "Database & ORM",
     icon: Cable,
-    skills: ["ReactQuery", "Prisma", "MongoDB"],
+    skills: ["Prisma", "PostgreSQL"],
   },
   {
-    title: "Version Control & Deployment",
+    title: "Tools & Deployment",
     icon: Terminal,
-    skills: ["Git", "GitHub", "Vercel", "Npm"],
+    skills: ["Git", "GitHub", "npm", "Vercel"],
   },
 ];
 
 //Card component for each skill category
-function SkillsCard({ title, icon: Icon, skills }: Skills) {
+function SkillsCard({ title, icon: Icon, skills }: SkillCategory) {
   return (
-    <Card className="p-5 h-35  hover:shadow-md hover:scale-105 dark:hover:shadow-olive-50/20  transition-transform duration-300 ease-in-out my-3">
-      <div>
+    <Card className="p-5 min-h-35 hover:shadow-md dark:hover:shadow-white/10  transition-transform duration-300 ease-in-out">
+      <section>
         <div className="flex flex-row items-start mb-4">
           <Icon className="w-6 h-6 mr-2 text-gray-600 dark:text-gray-300" />
           <h3 className="text-lg font-semibold text-left">{title}</h3>
         </div>
         <ul className="list-inside flex flex-wrap gap-1.5">
-          {skills.map((skill, index) => (
+          {skills.map((skill) => (
             <li
-              key={index}
+              key={skill}
               className="text-gray-700 dark:text-gray-400 list-none whitespace-nowrap bg-accent rounded-md py-0.5 px-1 text-xs"
             >
               {skill}
             </li>
           ))}
         </ul>
-      </div>
+      </section>
     </Card>
   );
 }

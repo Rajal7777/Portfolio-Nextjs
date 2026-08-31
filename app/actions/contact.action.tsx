@@ -23,7 +23,19 @@ export async function sendContactEmail(
 
     const { name, email, message } = result.data;
 
-    // 2. Render React Email template
+    // Check required environment variable
+    const contactEmail = process.env.CONTACT_EMAIL;
+
+    if (!contactEmail) {
+      console.error("[Contact Email Error] CONTACT_EMAIL is not configured.");
+
+      return {
+        success: false,
+        message: "Email service is not configured.",
+      };
+    }
+
+    // Render React Email template
     const html = await render(
       <ContactEmail name={name} email={email} message={message} />,
     );
@@ -31,13 +43,13 @@ export async function sendContactEmail(
     // 3. Send email
     const { error } = await resend.emails.send({
       from: "Portfolio <onboarding@resend.dev>",
-      to: process.env.CONTACT_EMAIL as string,
+      to: contactEmail,
       replyTo: email,
       subject: `New contact form submission from ${name}`,
       html,
     });
 
-    // 4. Handle Resend API error
+    // Handle Resend API error
     if (error) {
       console.error("[Contact Email Error]", error);
 

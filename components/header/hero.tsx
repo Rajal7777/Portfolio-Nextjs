@@ -21,6 +21,7 @@ const HeroSection = () => {
 
   return (
     <section className="mx-auto flex max-w-4xl flex-col gap-8 px-4 py-8 sm:px-6 md:my-12 md:gap-10 lg:flex-row lg:items-center lg:justify-between">
+      
       {/* Content */}
       <FadeIn className="order-2 mx-auto max-w-2xl space-y-5 text-center lg:order-1 lg:text-left">
         <div className="space-y-3">
@@ -28,15 +29,15 @@ const HeroSection = () => {
             Hi I&lsquo;m Rajal Suwal.
           </p>
 
-          <h2 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
+          <h1 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
             Frontend Developer{" "}
             <span className="block text-2xl text-muted-foreground sm:inline">
               {t("stack")}
             </span>
-          </h2>
+          </h1>
         </div>
 
-        <p className="text-xs leading-7 text-pretty text-muted-foreground sm:text-lg md:text-base">
+        <p className="text-sm leading-7 text-pretty text-muted-foreground sm:text-base">
           {t("description")}
         </p>
 
@@ -58,7 +59,7 @@ const HeroSection = () => {
       {/* Image */}
       <FadeIn
         delay={0.1}
-        className="order-1 flex shrink-0 justify-center lg:order-2"
+        className="order-1 flex shrink-0 justify-center lg:order-2 mb-4 sm:mb-0 lg:justify-end"
       >
         <Image
           src="/cover.jpg"
@@ -66,8 +67,7 @@ const HeroSection = () => {
           width={320}
           height={400}
           priority
-          loading="eager"
-          className="mb-4 h-auto w-full max-w-[320px] bg-white object-contain"
+          className="h-auto w-full max-w-[320px] object-contain"
         />
       </FadeIn>
     </section>

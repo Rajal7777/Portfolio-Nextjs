@@ -50,5 +50,19 @@
     "visaQualification": "Visa Status and Qualifications",
     "visaStatus": "Visa Status",
     "visaExpiry": "Date of Expiration"
+  },
+  "projectCard": {
+  "features": "Features",
+  "techStack": "Tech Stack",
+  "liveProject": "Live Project",
+  "liveCode": "Live Code",
+  "showProjectImage": "Show project image"
+},
+  "contactPage": {
+    "title": "Contact Me",
+    "getInTouch": "Get in Touch",
+    "description": "Looking forward to hearing from you!",
+    "location": "Tochigi, Japan",
+    "email": "suwalrajal57@gmail.com"
   }
 }

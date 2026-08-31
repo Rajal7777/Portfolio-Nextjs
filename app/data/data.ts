@@ -2,7 +2,7 @@ export const projects = [
   {
     title: "Full-Stack E-Commerce Platform",
     description:
-      "A production-style e-commerce application built with Next.js and TypeScript, featuring secure authentication, product and cart management, order processing, and integrated online payments. Designed with reusable components, responsive UI, and a scalable backend architecture.",
+      "A full-stack e-commerce application with authentication, product management, cart, checkout, Stripe payment integration, and order management.",
     features: [
       "Authentication & authorization with NextAuth",
       "Product search, filtering & pagination",

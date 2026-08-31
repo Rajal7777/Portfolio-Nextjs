@@ -50,5 +50,19 @@
     "visaQualification": "在留資格・資格",
     "visaStatus": "在留資格",
     "visaExpiry": "有効期限"
+  },
+    "projectCard": {
+  "features": "機能",
+  "techStack": "技術スタック",
+  "liveProject": "ライブプロジェクト",
+  "liveCode": "ライブコード",
+  "showProjectImage": "プロジェクト画像を表示"
+},
+ "contactPage": {
+    "title": "お問い合わせ",
+    "getInTouch": "ご連絡ください",
+    "description": "ご連絡をお待ちしております！",
+    "location": "栃木県、日本",
+    "email": "suwalrajal57@gmail.com"
   }
 }

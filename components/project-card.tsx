@@ -1,13 +1,13 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import type { ProjectCardProps } from "@/types";
 import { Card } from "@/components/ui/card";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { FadeIn } from "./common/fade-in";
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 
 const ProjectCard = ({
   title,
@@ -22,25 +22,27 @@ const ProjectCard = ({
 }: ProjectCardProps) => {
   const [current, setCurrent] = useState(0);
 
+  const t = useTranslations("projectCard");
+
   return (
     <FadeIn delay={0.25}>
       <Card
         className={cn(
-          "overflow-hidden border-slate-200/70 bg-white/90 shadow-sm backdrop-blur-sm dark:border-slate-700/60 dark:bg-slate-900/80 p-1 mt-2",
+          "overflow-hidden border-slate-200/70 bg-white/90 shadow-sm backdrop-blur-sm dark:border-slate-700/60 dark:bg-slate-900/80 mt-2",
           className,
         )}
       >
         <div className="flex flex-col md:flex-row md:items-stretch">
           <div className="w-full p-3 md:w-1/2 md:p-4">
+
             {/* Main Image Container */}
             <div className="relative aspect-3/2 w-full overflow-hidden rounded-lg border bg-slate-50 dark:bg-slate-800">
               <Image
                 src={images[current]}
                 alt={imageAlt}
                 fill
-                priority
-                quality={100}
-                className="object-contain transition-transform duration-300 hover:scale-105"
+                quality={85}
+                className="object-cover transition-transform duration-300 hover:scale-105"
                 sizes="(max-width: 767px) 100vw, 50vw"
               />
             </div>
@@ -53,19 +55,20 @@ const ProjectCard = ({
                     key={index}
                     type="button"
                     onClick={() => setCurrent(index)}
+                      aria-label={`Show project image ${index + 1}`}
+          aria-current={current === index ? "true" : undefined}
                     className={cn(
                       "relative h-16 w-20 shrink-0 overflow-hidden rounded-md border transition-all duration-200",
                       current === index
                         ? "border-sky-500 ring-2 ring-sky-200 dark:ring-sky-900"
                         : "border-slate-200 hover:border-slate-300 dark:border-slate-700 dark:hover:border-slate-500",
                     )}
-                    aria-label={`Show project image ${index + 1}`}
-                  >
+                 >
                     <Image
                       src={image}
-                      alt={`${imageAlt} ${index + 1}`}
+                      alt=""
                       fill
-                      className="object-cover"
+                      className="object-cover p-1"
                       sizes="80px"
                     />
                   </button>
@@ -88,7 +91,7 @@ const ProjectCard = ({
             {features && features.length > 0 && (
               <div className="space-y-2">
                 <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">
-                  Features
+                  {t("features")}
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {features.map((feature) => (
@@ -105,7 +108,7 @@ const ProjectCard = ({
 
             <div className="space-y-2">
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">
-                Tech Stack
+                {t("techStack")}
               </p>
               <div className="flex flex-wrap gap-2">
                 {techStack.map((tech) => (
@@ -120,28 +123,28 @@ const ProjectCard = ({
             </div>
 
             <div className="mt-auto flex flex-wrap gap-3 pt-2">
-              <Link
+              <a
                 href={liveProjectUrl}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className={cn(
                   buttonVariants({ variant: "default", size: "lg" }),
                   "px-4",
                 )}
               >
-                Live Project
-              </Link>
-              <Link
+                {t("liveProject")}
+              </a>
+              <a
                 href={liveCodeUrl}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className={cn(
                   buttonVariants({ variant: "outline", size: "lg" }),
                   "px-4",
                 )}
               >
-                Live Code
-              </Link>
+                {t("liveCode")}
+              </a>
             </div>
           </div>
         </div>

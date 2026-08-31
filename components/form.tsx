@@ -1,7 +1,7 @@
 "use client";
 
 import { z } from "zod";
-import { Controller, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 import { contactFormSchema } from "@/lib/validations";
@@ -10,7 +10,6 @@ import { Field, FieldError, FieldGroup, FieldLabel } from "./ui/field";
 import { Button } from "./ui/button";
 import { sendContactEmail } from "@/app/actions/contact.action";
 import { toast } from "sonner";
-import { motion } from "framer-motion";
 
 const defaultValues = {
   name: "",
@@ -18,17 +17,16 @@ const defaultValues = {
   message: "",
 };
 
-const ContactForm = ({ title }: { title?: string }) => {
-  //connect the form to react-hook-form and zod for validation
-  const form = useForm<z.infer<typeof contactFormSchema>>({
-    resolver: zodResolver(contactFormSchema),
-    defaultValues: defaultValues,
-  });
-
-  //Form state variables
+const ContactForm = () => {
   const {
-    formState: { errors, isSubmitted, isSubmitSuccessful },
-  } = form;
+    register,
+    formState: { errors, isSubmitting },
+    handleSubmit,
+    reset,
+  } = useForm<z.infer<typeof contactFormSchema>>({
+    resolver: zodResolver(contactFormSchema),
+    defaultValues,
+  });
 
   //handle submit form
   const onSubmit = async (data: z.infer<typeof contactFormSchema>) => {
@@ -37,7 +35,7 @@ const ContactForm = ({ title }: { title?: string }) => {
 
       if (res.success) {
         toast.success(res.message);
-        form.reset(defaultValues);
+        reset(defaultValues);
       } else {
         toast.error(res.message);
       }
@@ -46,144 +44,76 @@ const ContactForm = ({ title }: { title?: string }) => {
     }
   };
 
-  //input style for the form fields
-  const inputStyle =
-    "border rounded-md border-border bg-background px-3 py-2 text-sm ring-offset-background  placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1  focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50";
-
   return (
-    <>
-      {title && (
-        <motion.h2
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 0.4, ease: "easeOut" }}
-          className="text-center"
-        >
-          <span className="inline-flex w-fit items-center rounded-sm border border-gray-200 bg-white px-6 py-2 font-serif text-4xl dark:border-gray-700 dark:bg-slate-900 my-8">
-            {title}
-          </span>
-        </motion.h2>
-      )}
+    <Card className="w-full sm:max-w-md md:max-w-4xl mx-auto space-y-8 border-none">
+      <CardHeader>
+        <CardTitle className="text-center text-2xl font-semibold">
+          Contact Me
+        </CardTitle>
+      </CardHeader>
+      <CardContent>
+        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
+          <FieldGroup>
+            {/* fullName */}
+            <Field>
+              <FieldLabel htmlFor="name">Name</FieldLabel>
 
-      <Card className="w-full sm:max-w-md md:max-w-4xl mx-auto space-y-8 border-none">
-        <CardHeader>
-          <CardTitle className="text-center text-2xl font-semibold">
-            Send an email
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <form
-            onSubmit={form.handleSubmit(onSubmit)}
-            className="flex flex-col gap-4"
-          >
-            <FieldGroup>
-              {/* fullName */}
-              <Controller
-                name="name"
-                control={form.control}
-                render={({ field, fieldState }) => {
-                  return (
-                    <Field data-invalid={fieldState.invalid}>
-                      <FieldLabel htmlFor="name">Name</FieldLabel>
-                      <input
-                        className={inputStyle}
-                        id="name"
-                        {...field}
-                        autoComplete="on"
-                        placeholder="Enter your name"
-                        required
-                      />
-
-                      {fieldState.invalid && (
-                        <FieldError errors={[fieldState.error]} />
-                      )}
-                    </Field>
-                  );
-                }}
+              <input
+                id="name"
+                {...register("name")}
+                autoComplete="name"
+                placeholder="Enter your name"
+                className="border rounded-md border-border bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
               />
 
-              {/* email */}
-              <Controller
-                name="email"
-                control={form.control}
-                render={({ field, fieldState }) => {
-                  return (
-                    <Field data-invalid={fieldState.invalid}>
-                      <FieldLabel htmlFor="email">Email</FieldLabel>
-                      <input
-                        className={inputStyle}
-                        type="email"
-                        id="email"
-                        {...field}
-                        autoComplete="on"
-                        placeholder="Enter your email"
-                        required
-                      />
+              {errors.name && <FieldError errors={[errors.name]} />}
+            </Field>
 
-                      {fieldState.invalid && (
-                        <FieldError errors={[fieldState.error]} />
-                      )}
-                    </Field>
-                  );
-                }}
+            {/* email */}
+            <Field>
+              <FieldLabel htmlFor="email">Email</FieldLabel>
+
+              <input
+                id="email"
+                {...register("email")}
+                autoComplete="email"
+                placeholder="Enter your email"
+                className="border rounded-md border-border bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
               />
 
-              {/* message */}
-              <Controller
-                name="message"
-                control={form.control}
-                render={({ field, fieldState }) => {
-                  return (
-                    <Field data-invalid={fieldState.invalid}>
-                      <FieldLabel htmlFor="message">Message</FieldLabel>
-                      <textarea
-                        className={inputStyle}
-                        rows={6}
-                        id="message"
-                        {...field}
-                        autoComplete="off"
-                        placeholder="Enter your message"
-                      />
+              {errors.email && <FieldError errors={[errors.email]} />}
+            </Field>
 
-                      {fieldState.invalid && (
-                        <FieldError errors={[fieldState.error]} />
-                      )}
-                    </Field>
-                  );
-                }}
+            {/* message */}
+            <Field>
+              <FieldLabel htmlFor="message">Message</FieldLabel>
+
+              <textarea
+                id="message"
+                {...register("message")}
+                autoComplete="off"
+                placeholder="Enter your message"
+                rows={6}
+                className="border rounded-md border-border bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
               />
-            </FieldGroup>   
 
-            <div>
-              <Button
-                type="submit"
-                variant="default"
-                className="w-full my-2"
-                disabled={form.formState.isSubmitting}
-              >
-                {form.formState.isSubmitting ? "Submitting..." : "Submit"}
-              </Button>
+              {errors.message && <FieldError errors={[errors.message]} />}
+            </Field>
+          </FieldGroup>
 
-              {/* error message */}
-
-              {isSubmitted && Object.keys(errors).length > 0 && (
-                <p className="text-red-500 text-center">
-                  Please fill the error fields and try again.
-                </p>
-              )}
-
-              {/* message for successful submission */}
-              {isSubmitSuccessful && (
-                <p className="text-green-500 text-center">
-                  Form submitted successfully!
-                </p>
-              )}
-            </div>
-          </form>
-        </CardContent>
-      </Card>
-    </>
+          <div>
+            <Button
+              type="submit"
+              variant="default"
+              className="w-full my-2"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? "Submitting..." : "Submit"}
+            </Button>
+          </div>
+        </form>
+      </CardContent>
+    </Card>
   );
 };
 
