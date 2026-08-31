@@ -22,7 +22,7 @@ const ContactPage = () => {
                     </BreadcrumbItem>
                 </BreadcrumbList>
             </Breadcrumb>
-     <ContactForm title="Contact Form" />
+     <ContactForm />
         </>
     );
 };
