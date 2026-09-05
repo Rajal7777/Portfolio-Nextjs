@@ -42,7 +42,7 @@ const MobileMenu = ({ navLinks, isOpen, onClose }: MobileNavProps) => {
               damping: 28,
             }}
             onClick={(e) => e.stopPropagation()}
-            className="fixed right-0 top-0 flex h-dvh w-[85vw] max-w-sm flex-col overflow-hidden bg-background shadow-2xl"
+            className="absolute right-0 top-0 flex h-dvh w-[85vw] max-w-sm flex-col overflow-hidden bg-background shadow-2xl"
           >
             {/* Header */}
             <div className="flex shrink-0 items-center justify-between border-b border-border px-5 py-4">

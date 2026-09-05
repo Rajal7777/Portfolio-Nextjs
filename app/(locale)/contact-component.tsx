@@ -15,7 +15,7 @@ const ContactPage = () => {
   return (
     <section className="max-w-4xl mx-auto sm:px-6 lg:px-8 my-12">
       <FadeIn>
-        <h2 className="text-2xl mb-4 md:text-4xl pl-4 text-gray-800 bg-slate-100 dark:bg-slate-900 py-2 font-semibold playfair text-center border border-gray-200 dark:border-gray-700 rounded-sm">
+        <h2 className="text-2xl mb-4 md:text-4xl pl-4 text-slate-800 dark:text-slate-100 bg-slate-100 dark:bg-slate-900 py-2 font-semibold playfair text-center border border-gray-200 dark:border-gray-700 rounded-sm">
           {t("title")}
         </h2>
       </FadeIn>

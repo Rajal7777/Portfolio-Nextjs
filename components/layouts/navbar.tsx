@@ -73,157 +73,158 @@ const Navbar = () => {
   }, [mobileOpen]);
 
   return (
-    <header
-      className={cn(
-        "fixed inset-x-0 top-0 z-50 w-full border-gray-200 transition-all duration-200 dark:border-gray-900 mb-4 ",
-        scrolled
-          ? "border-b bg-background/80 backdrop-blur-md shadow-sm"
-          : "bg-background",
-      )}
-    >
-      <nav
-        id="mobile-navigation"
-        className="wrapper  h-16 flex items-center justify-between">
-        {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 font-medium">
-          <Image
-            src="/logo.png"
-            alt="logo image"
-            width={32}
-            height={32}
-            priority
-            unoptimized
-            className="rounded-full"
-          />
-        </Link>
-
-        {/* Desktop Navbar*/}
-        <div className="hidden md:flex items-center space-x-8 ">
-          {navLinks.map((link) => {
-            const isActive =
-              pathname === link.href ||
-              pathname.startsWith(`${link.href}/`);
-
-            return (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={cn(
-                  "font-medium text-muted-foreground transition-colors",
-                  isActive && "text-foreground",
-                  !isActive && "hover:text-foreground",
-                )}
-              >
-                {link.label}
-              </Link>
-            );
-          })}
-        </div>
-
-        {/* Toggle btn & Social icons*/}
-        <div className="flex  items-center space-x-2">
-          <a
-            href="https://github.com/Rajal7777"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="GitHub"
-            className={cn(
-              buttonVariants({ variant: "ghost", size: "icon" }),
-              "hidden md:flex h-10 w-10",
-            )}
-          >
+    <>
+      <header
+        className={cn(
+          "fixed inset-x-0 top-0 z-50 w-full border-gray-200 transition-all duration-200 dark:border-gray-900",
+          scrolled
+            ? "border-b bg-background/80 backdrop-blur-md shadow-sm"
+            : "bg-background",
+        )}
+      >
+        <nav
+          id="mobile-navigation"
+          className="wrapper  h-16 flex items-center justify-between"
+        >
+          {/* Logo */}
+          <Link href="/" className="flex items-center gap-2 font-medium">
             <Image
-              src="/icons/github.svg"
-              alt="github logo"
-              width={20}
-              height={20}
+              src="/logo.png"
+              alt="logo image"
+              width={32}
+              height={32}
+              priority
+              unoptimized
+              className="rounded-full"
             />
-          </a>
+          </Link>
 
-          <a
-            href="https://www.linkedin.com/in/rajal-suwal-158986165/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Linkedin"
-            className={cn(
-              buttonVariants({ variant: "ghost", size: "icon" }),
-              "hidden md:flex h-10 w-10",
-            )}
-          >
-            <Image
-              src="/icons/linkedin.png"
-              alt="linkedin logo"
-              width={30}
-              height={30}
-            />
-          </a>
+          {/* Desktop Navbar*/}
+          <div className="hidden md:flex items-center space-x-8 ">
+            {navLinks.map((link) => {
+              const isActive =
+                pathname === link.href || pathname.startsWith(`${link.href}/`);
 
-          <a
-            href="mailto:suwalrajal57@gmail.com"
-            aria-label="Email Rajal Suwal"
-            className={cn(
-              buttonVariants({ variant: "ghost", size: "icon" }),
-              "hidden md:flex h-10 w-10",
-            )}
-          >
-            <Mail className="h-6 w-6" />
-          </a>
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={cn(
+                    "font-medium text-muted-foreground transition-colors",
+                    isActive && "text-foreground",
+                    !isActive && "hover:text-foreground",
+                  )}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
+          </div>
 
-          {/* Language toggel */}
-          <DropdownMenu>
-            <DropdownMenuTrigger
-              type="button"
+          {/* Toggle btn & Social icons*/}
+          <div className="flex  items-center space-x-2">
+            <a
+              href="https://github.com/Rajal7777"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
               className={cn(
                 buttonVariants({ variant: "ghost", size: "icon" }),
-                "h-10 w-10",
+                "hidden md:flex h-10 w-10",
               )}
-              aria-label="Change language"
             >
-              <Languages className="h-6 w-6" />
-            </DropdownMenuTrigger>
+              <Image
+                src="/icons/github.svg"
+                alt="github logo"
+                width={20}
+                height={20}
+              />
+            </a>
 
-            <DropdownMenuContent align="end" className="z-110">
-              <DropdownMenuItem
-                className="cursor-pointer"
-                onClick={() => handleLanguageChange("ja")}
+            <a
+              href="https://www.linkedin.com/in/rajal-suwal-158986165/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Linkedin"
+              className={cn(
+                buttonVariants({ variant: "ghost", size: "icon" }),
+                "hidden md:flex h-10 w-10",
+              )}
+            >
+              <Image
+                src="/icons/linkedin.png"
+                alt="linkedin logo"
+                width={30}
+                height={30}
+              />
+            </a>
+
+            <a
+              href="mailto:suwalrajal57@gmail.com"
+              aria-label="Email Rajal Suwal"
+              className={cn(
+                buttonVariants({ variant: "ghost", size: "icon" }),
+                "hidden md:flex h-10 w-10",
+              )}
+            >
+              <Mail className="h-6 w-6" />
+            </a>
+
+            {/* Language toggel */}
+            <DropdownMenu>
+              <DropdownMenuTrigger
+                type="button"
+                className={cn(
+                  buttonVariants({ variant: "ghost", size: "icon" }),
+                  "h-10 w-10",
+                )}
+                aria-label="Change language"
               >
-                日本語
-              </DropdownMenuItem>
-              <DropdownMenuItem
-                className="cursor-pointer"
-                onClick={() => handleLanguageChange("en")}
-              >
-                English
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+                <Languages className="h-6 w-6" />
+              </DropdownMenuTrigger>
 
-          {/* themeToggle btn */}
-          <ThemeToggle />
+              <DropdownMenuContent align="end" className="z-110">
+                <DropdownMenuItem
+                  className="cursor-pointer"
+                  onClick={() => handleLanguageChange("ja")}
+                >
+                  日本語
+                </DropdownMenuItem>
+                <DropdownMenuItem
+                  className="cursor-pointer"
+                  onClick={() => handleLanguageChange("en")}
+                >
+                  English
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
 
-          {/* Mobile menu button */}
-          <button
-            type="button"
-            aria-label={mobileOpen ? "Close mobile menu" : "Open mobile menu"}
-            aria-expanded={mobileOpen}
-            aria-controls="mobile-navigation"
-            className={cn(
-              buttonVariants({ variant: "ghost", size: "icon" }),
-              "h-10 w-10 md:hidden",
-            )}
-            onClick={() => {
-              setMobileOpen((prev) => !prev);
-            }}
-          >
-            {mobileOpen ? (
-              <X className="w-5 h-5" />
-            ) : (
-              <Menu className="w-5 h-5" />
-            )}
-          </button>
-        </div>
-      </nav>
+            {/* themeToggle btn */}
+            <ThemeToggle />
 
+            {/* Mobile menu button */}
+            <button
+              type="button"
+              aria-label={mobileOpen ? "Close mobile menu" : "Open mobile menu"}
+              aria-expanded={mobileOpen}
+              aria-controls="mobile-navigation"
+              className={cn(
+                buttonVariants({ variant: "ghost", size: "icon" }),
+                "h-10 w-10 md:hidden",
+              )}
+              onClick={() => {
+                setMobileOpen((prev) => !prev);
+              }}
+            >
+              {mobileOpen ? (
+                <X className="w-5 h-5" />
+              ) : (
+                <Menu className="w-5 h-5" />
+              )}
+            </button>
+          </div>
+        </nav>
+      </header>
       {/* Mobile navbar */}
       {mobileOpen && (
         <MobileMenu
@@ -232,7 +233,7 @@ const Navbar = () => {
           onClose={() => setMobileOpen(false)}
         />
       )}
-    </header>
+    </>
   );
 };
 
