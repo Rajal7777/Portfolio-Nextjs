@@ -84,8 +84,9 @@ const SkillSection = () => {
   return (
     <FadeIn delay={0.1}>
       <section className="max-w-4xl mx-auto my-12 px-4 sm:px-6 lg:px-8">
-        <h2 className="text-2xl mb-4 md:text-4xl  text-gray-800 bg-slate-100 dark:bg-slate-900 py-2 font-semibold playfair text-center my-10  border border-gray-200 dark:border-gray-700 rounded-sm">
-          Skills{" "}
+        <h2 className="my-10 py-2 text-center text-2xl font-semibold tracking-wide text-slate-800 dark:text-slate-100 md:text-4xl">
+          Skills
+          <span className="mx-auto mt-3 block h-1 w-16 rounded-full bg-slate-800 dark:bg-slate-100" />
         </h2>
         <p className="mb-8 text-center text-xl md:text-2xl text-gray-600 dark:text-gray-300">
           My Tech Stack
