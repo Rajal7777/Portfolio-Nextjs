@@ -1,20 +1,34 @@
-"use client";
-
 import HeroSection from "@/components/header/hero";
 import ContactPage from "./contact-component";
 import SkillSection from "@/components/skills";
 import ProjectCard from "@/components/project-card";
 import { projects } from "@/app/data/data";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 
-export default function Home() {
-  const t = useTranslations("projects");
+export default async function Home() {
+  const t = await getTranslations("projects");
 
-  const localizedProjects = projects.map((project) => ({
-    ...project,
-    description: t(`${project.id}.description`),
-    features: t.raw(`${project.id}.features`) as string[],
-  }));
+  const localizedProjects = projects.map((project) => {
+   
+    let featuresArray: string[] = [];
+    try {
+      const rawFeatures = t.raw(`${project.id}.features`);
+      if (Array.isArray(rawFeatures)) {
+        featuresArray = rawFeatures;
+      }
+    } catch (e) {
+      console.error(
+        `Missing or malformed features array for project: ${project.id}`,
+        e,
+      );
+    }
+
+    return {
+      ...project,
+      description: t(`${project.id}.description`),
+      features: featuresArray,
+    };
+  });
 
   return (
     <>

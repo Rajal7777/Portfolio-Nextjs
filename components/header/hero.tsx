@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight } from "lucide-react";
+import { Loader2, Download } from "lucide-react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { FadeIn } from "../common/fade-in";
@@ -14,14 +14,12 @@ const HeroSection = () => {
   const handleDownload = () => {
     setIsDownloading(true);
 
-    setTimeout(() => {
-      setIsDownloading(false);
-    }, 1500);
+    const timer = setTimeout(() => setIsDownloading(false), 2000);
+    return () => clearTimeout(timer);
   };
 
   return (
     <section className="mx-auto flex max-w-4xl flex-col gap-8 px-4 py-8 sm:px-6 md:my-12 md:gap-10 lg:flex-row lg:items-center lg:justify-between">
-      
       {/* Content */}
       <FadeIn className="order-2 mx-auto max-w-2xl space-y-5 text-center lg:order-1 lg:text-left">
         <div className="space-y-3">
@@ -47,11 +45,15 @@ const HeroSection = () => {
             download="resume.pdf"
             onClick={handleDownload}
             aria-busy={isDownloading}
-            className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-gray-600 px-5 py-2 text-sm font-medium text-white transition-colors hover:bg-gray-500 sm:w-auto md:py-3"
+            className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-slate-900 dark:bg-slate-100 px-5 py-2.5 text-sm font-medium text-white dark:text-slate-900 transition-colors hover:bg-slate-800 dark:hover:bg-slate-200 sm:w-auto"
           >
             {isDownloading ? t("resumeDownloading") : t("resumeCta")}
 
-            <ArrowRight className="h-4 w-4" />
+            {isDownloading ? (
+              <Loader2 className="h-4 w-4 animate-spin" />
+            ) : (
+              <Download className="h-4 w-4" />
+            )}
           </a>
         </div>
       </FadeIn>
@@ -59,16 +61,18 @@ const HeroSection = () => {
       {/* Image */}
       <FadeIn
         delay={0.1}
-        className="order-1 flex shrink-0 justify-center lg:order-2 mb-4 sm:mb-0 lg:justify-end"
+        className="order-1 mb-4 flex w-full justify-center sm:mb-0 lg:order-2 lg:w-auto lg:justify-end"
       >
-        <Image
-          src="/cover.jpg"
-          alt={t("imageAlt")}
-          width={320}
-          height={400}
-          priority
-          className="h-auto w-full max-w-[320px] object-contain"
-        />
+        <div className="relative aspect-video w-full overflow-hidden rounded-2xl  sm:max-w-md lg:w-80 bg-background">
+          <Image
+            src="/cover.jpg"
+            alt={t("imageAlt")}
+            fill
+            priority
+            sizes="(max-width: 1024px) 100vw, 320px"
+            className="object-cover object-center"
+          />
+        </div>
       </FadeIn>
     </section>
   );

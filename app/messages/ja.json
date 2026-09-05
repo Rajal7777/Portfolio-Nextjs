@@ -10,45 +10,86 @@
   },
   "aboutMe": {
     "title": "自己PR",
-    "description": "私は以前からテクノロジーに興味があり、将来につながる専門的な技術を身につけたいと考えていました。その中で、人々が実際に利用するWebサービスを自分の手で作れるフロントエンド開発に魅力を感じ、本格的に学習を始めました。\n\n現在は、HTML/CSS、JavaScript、TypeScript、React、Next.jsを中心に学習を続けています。単に知識を身につけるだけではなく、学んだことを実際のWebアプリケーションとして形にすることを大切にしており、これまでに認証機能、データベース、カート、決済機能などを実装したフルスタックに近いWebアプリケーションを個人開発しました。企画から実装、改善まで取り組む中で、ユーザーファーストのUI/UX設計や、再利用性・保守性を意識したコンポーネント設計の重要性についても学びました。また、分からない技術や課題に直面した際には、自ら調査・学習し、理解した内容を実際に実装して検証することを心がけています。AIも積極的に活用しており、単に答えを得るためではなく、コードの仕組みを理解したり、異なるアプローチを比較したり、問題解決のヒントを得たりするための学習パートナーとして活用しています。\n\nUdemyのフロントエンド開発ブートキャンプを修了し、HTML、CSS、JavaScript、TypeScript、React、Next.jsを中心に学習しました。講座や実践的なプロジェクトを通して、モダンなフロントエンド開発やレスポンシブなWebアプリケーションを構築するための基礎を身につけました。また、状態管理やデータ取得に関する知識として、Zustand、Redux、TanStack Queryなどのライブラリについても学習しており、アプリケーションの状態やサーバー側のデータを効率的に管理するための基本的な知識があります。さらに、Node.jsとExpressを中心としたサーバーサイド開発のブートキャンプも受講し、バックエンド開発やAPI開発の基礎について学びました。加えて、GitやGitHubを使用したバージョン管理や開発プロジェクトの管理についても学習しています。現在も個人開発を通してこれらの知識を実際のWebアプリケーションに活用しながら、継続的に技術力を高めています。\n\n今後は、実務を通してフロントエンドエンジニアとしての専門性をさらに高めるとともに、バックエンド、データベース、API設計などの知識も深め、Webアプリケーション全体を理解できるエンジニアへ成長したいと考えています。AIも効果的に活用しながら、フロントエンドからバックエンドまで幅広く対応できるフルスタックWebエンジニアになることが目標です。これまで培ってきた学習意欲と継続力を活かし、新しい技術や課題にも積極的に挑戦していきます。また、前職で培ったコミュニケーション能力や協調性も活かし、チームメンバーと柔軟に連携しながら、ユーザーにとって価値のある、品質の高いWebサービスの開発に貢献できるエンジニアを目指しています。",
+    "description": "以前からテクノロジーに興味があり、長期的なキャリアにつながる専門スキルを身につけたいと考え、Web開発の学習を始めました。特に、ユーザーが実際に利用するWebサービスやアプリケーションを自分の手で作れる点に魅力を感じ、フロントエンド開発を中心に学んでいます。\n\n現在はHTML/CSS、JavaScript、TypeScript、React、Next.jsを中心に、実際にWebアプリケーションを開発しながら学習しています。個人開発では、認証、データベース、ショッピングカート、決済機能などを備えたWebアプリケーションを開発し、ユーザー目線のUI/UX、再利用可能なコンポーネント設計、保守しやすいコードの重要性を学びました。\n\n未知の技術や問題に直面した際には、自分で調べ、実装し、動作を確認しながら理解を深めることを大切にしています。また、AIも単に答えを得るためではなく、コードの仕組みや異なる実装方法を理解し、問題解決力を高めるための学習パートナーとして活用しています。\n\n今後は、実務経験を通してフロントエンドエンジニアとして成長するとともに、バックエンド、データベース、API設計についても知識を広げたいと考えています。将来的には、フロントエンドとバックエンドの両方に対応でき、ユーザーに価値のあるWebサービスを開発できるフルスタックWebエンジニアを目指しています。",
     "skillsTitle": "コアスキル",
     "frontendLabel": "フロントエンド",
     "stateManagementAndDataFetchingLabel": "状態管理・データ取得",
     "backendLabel": "バックエンド",
     "toolsAndVersionControlLabel": "ツール・バージョン管理",
-    "frontend": ["HTML", "CSS", "JavaScript", "TypeScript", "React", "Next.js"],
-    "stateManagementAndDataFetching": ["Zustand", "Redux", "TanStack Query"],
-    "backend": ["Node.js", "Express"],
-    "toolsAndVersionControl": ["Git", "GitHub"],
+    "frontend": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "TypeScript",
+      "React",
+      "Next.js"
+    ],
+    "stateManagementAndDataFetching": [
+      "Zustand",
+      "Redux",
+      "TanStack Query"
+    ],
+    "backend": [
+      "Node.js",
+      "Express"
+    ],
+    "toolsAndVersionControl": [
+      "Git",
+      "GitHub"
+    ],
     "courseTitle": "Web Development Bootcamp",
     "courseDescription": "Udemyのフロントエンド開発ブートキャンプを修了し、HTML、CSS、JavaScript、TypeScript、React、Next.jsを中心に学習しました。講座や実践的なプロジェクトを通して、モダンなフロントエンド開発やレスポンシブなWebアプリケーションを構築するための基礎を身につけました。\n\nまた、状態管理やデータ取得に関する知識として、Zustand、Redux、TanStack Queryなどのライブラリについても学習しており、アプリケーションの状態やサーバー側のデータを効率的に管理するための基本的な知識があります。\n\nさらに、Node.jsとExpressを中心としたサーバーサイド開発のブートキャンプも受講し、バックエンド開発やAPI開発の基礎について学びました。加えて、GitやGitHubを使用したバージョン管理や開発プロジェクトの管理についても学習しています。\n\n現在も個人開発を通してこれらの知識を実際のWebアプリケーションに活用しながら、継続的に技術力を高めています。"
   },
+  "AboutPage": {
+    "metaTitle": "自己紹介 | ラザル・スワル",
+    "metaDescription": "日本での開発経験、資格、ビザについてご覧いただけます。",
+    "visaQualification": "ビザ・資格",
+    "visaStatus": "在留資格",
+    "visaExpiry": "在留期間満了日",
+    "visaName": "技術・人文知識・国際業務",
+    "qualificationsLabel": "資格",
+    "jlpt": "日本語能力試験\uFF08JLPT\uFF09N2 合格",
+    "jlptDate": "2021年7月",
+    "driverLicense": "普通自動車免許",
+    "licenseDate": "2021年3月",
+    "udemy": "Udemy\uFF1aモダンJavaScript・React開発講座 修了",
+    "udemyDate": "2025年12月",
+    "toeic": "TOEIC Listening & Reading スコア 780点",
+    "toeicDate": "2026年3月"
+  },
   "educationPage": {
     "title": "学歴",
-    "schoolInfo": "小学校・中学校",
-    "highSchoolInfo": "高等学校",
-    "collegeInfo": "IT大学"
-  },
-  "AboutPage": {
-    "visaQualification": "在留資格・資格",
-    "visaStatus": "在留資格",
-    "visaExpiry": "有効期限"
-  },
-  "projectCard": {
-    "features": "機能",
-    "techStack": "技術スタック",
-    "liveProject": "ライブプロジェクト",
-    "liveCode": "ライブコード",
-    "showProjectImage": "プロジェクト画像を表示"
-  },
-  "contactPage": {
-    "title": "お問い合わせ",
-    "getInTouch": "ご連絡ください",
-    "description": "ご連絡をお待ちしております！",
-    "location": "栃木県、日本",
-    "email": "suwalrajal57@gmail.com"
+    "nepal": "ネパール",
+    "japan": "日本",
+    "school1": {
+      "title": "ブライト・スター・イングリッシュ・スクール",
+      "info": "小・中学校 卒業",
+      "description": "バクタプル、バラヒスタン"
+    },
+    "school2": {
+      "title": "クウォパ高等中学校",
+      "info": "高校 卒業",
+      "description": "バクタプル、デコチャ"
+    },
+    "school3": {
+      "title": "オーキッド・インターナショナル・カレッジ",
+      "info": "大学 中退",
+      "description": "ネパール、ラリトプル"
+    },
+    "school4": {
+      "title": "久留米日本語学校",
+      "info": "日本語学科 卒業",
+      "description": "福岡県久留米市"
+    },
+    "school5": {
+      "title": "熊本YMCAビジネス専門学校",
+      "info": "ビジネス専門課程 卒業",
+      "description": "熊本県熊本市"
+    }
   },
   "projects": {
+    "metaTitle": "プロジェクト",
+    "metaDescription": "私のプロジェクトの一覧",
     "ecommerce": {
       "description": "認証、商品管理、カート・在庫管理、チェックアウト、Stripe・PayPal決済、注文管理、メール通知などの機能を実装したフルスタックのECサイトです。",
       "features": [
@@ -73,5 +114,27 @@
         "Resendによるメール通知機能"
       ]
     }
+  },
+  "projectCard": {
+    "metaTitle": "プロジェクトカード",
+    "metaDescription": "プロジェクトの詳細を表示するカードコンポーネント",
+    "features": "機能",
+    "techStack": "技術スタック",
+    "liveProject": "ライブプロジェクト",
+    "liveCode": "ライブコード",
+    "showProjectImage": "プロジェクト画像を表示"
+  },
+  "contactPage": {
+    "metaTitle": "お問い合わせページ",
+    "metaDescription": "このお問い合わせページからご連絡ください",
+    "title": "お問い合わせ",
+    "getInTouch": "ご連絡はこちら",
+    "description": "お気軽にお問い合わせください！",
+    "locationText": "栃木県、日本",
+    "email": "suwalrajal57@gmail.com",
+    "phoneNumber": "070-9034-4803",
+    "phoneUrl": "+817090344803",
+    "widgetHeading": "メッセージを送る",
+    "widgetSubheading": "ご連絡をお待ちしております。"
   }
 }

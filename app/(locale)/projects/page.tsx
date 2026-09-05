@@ -1,5 +1,3 @@
-"use client";
-
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -7,13 +5,22 @@ import {
   BreadcrumbList,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 import ProjectCard from "@/components/project-card";
 import { FadeIn } from "@/components/common/fade-in";
 import { projects } from "@/app/data/data";
-import { useTranslations } from "next-intl";
 
-const ProjectPage = () => {
-  const t = useTranslations("projects");
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations("projects");
+  return {
+    title: t("metaTitle"),
+    description: t("metaDescription"),
+  };
+}
+
+const ProjectPage = async () => {
+  const t = await getTranslations("projects");
 
   const localizedProjects = projects.map((project) => ({
     ...project,

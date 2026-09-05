@@ -7,43 +7,26 @@ import {
   Send,
   MessageCircleHeart,
 } from "lucide-react";
-import { Raleway } from "next/font/google";
-import { cn } from "@/lib/utils";
 import { useTranslations } from "next-intl";
-
-const raleway = Raleway({
-  subsets: ["latin"],
-  weight: "700",
-});
 
 const ContactPage = () => {
   const t = useTranslations("contactPage");
 
   return (
-    <section
-      className={cn(
-        "max-w-4xl mx-auto sm:px-6 lg:px-8 my-6",
-        raleway.className,
-      )}
-    >
+    <section className="max-w-4xl mx-auto sm:px-6 lg:px-8 my-12">
       <FadeIn>
         <h2 className="text-2xl mb-4 md:text-4xl pl-4 text-gray-800 bg-slate-100 dark:bg-slate-900 py-2 font-semibold playfair text-center border border-gray-200 dark:border-gray-700 rounded-sm">
           {t("title")}
         </h2>
       </FadeIn>
 
-      <div className="flex gap-4 justify-between flex-col md:flex-row w-full h-full py-12 mx-auto px-5"
-      >
+      <div className="flex gap-4 justify-between flex-col md:flex-row w-full h-full py-12 mx-auto px-5">
         {/* Contact Info: slides in from the left */}
-        <FadeIn
-          x={-80}
-          y={0}
-          className="mx-auto w-full max-w-md"
-        >
-          <h2 className="text-2xl mb-4 md:text-2xl font-semibold tracking-wide uppercase">
+        <FadeIn x={-80} y={0} className="mx-auto w-full max-w-md">
+          <h3 className="text-2xl mb-4 font-semibold tracking-wide uppercase text-slate-900 dark:text-slate-100">
             {t("getInTouch")}
-          </h2>
-          <p className="text-base text-gray-700 ">
+          </h3>
+          <p className="text-base text-slate-600 dark:text-slate-300">
             {t("description")}
           </p>
           <div className="flex flex-col gap-4 mt-4 ">
@@ -53,9 +36,9 @@ const ContactPage = () => {
                 href="https://www.google.com/maps/search/?api=1&query=Ohtawara+Tochigi+Japan"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm text-gray-500 hover:text-foreground"
+                className="text-sm text-slate-500 hover:text-sky-600 dark:text-slate-400 dark:hover:text-sky-400 transition-colors"
               >
-                Tochigi, Japan
+                {t("locationText")}
               </a>
             </div>
 
@@ -63,7 +46,7 @@ const ContactPage = () => {
               <Mail className="h-5 w-5 text-muted-foreground" />
               <a
                 href={`mailto:${t("email")}`}
-                className="text-sm text-gray-500 hover:text-foreground transition-colors"
+                className="text-sm text-slate-500 hover:text-sky-600 dark:text-slate-400 dark:hover:text-sky-400 transition-colors"
               >
                 {t("email")}
               </a>
@@ -72,10 +55,10 @@ const ContactPage = () => {
             <div className="flex items-center gap-4">
               <Phone className="h-5 w-5 text-muted-foreground" />
               <a
-                href="tel:+817090344803"
-                className="text-sm text-gray-500 hover:text-foreground transition-colors"
+                href={`tel:${t("phoneUrl")}`}
+                className="text-sm text-slate-500 hover:text-sky-600 dark:text-slate-400 dark:hover:text-sky-400 transition-colors"
               >
-                070-9034-4803
+                {t("phoneNumber")}
               </a>
             </div>
 
@@ -101,10 +84,10 @@ const ContactPage = () => {
                   <div className="grid h-32 w-44 place-items-center rounded-xl border border-slate-200 bg-white/90 shadow-md dark:border-slate-700 dark:bg-slate-900/90">
                     <div className="text-center">
                       <p className="text-sm font-semibold text-slate-800 dark:text-slate-100">
-                        Let&apos;s Connect
+                        {t("widgetHeading")}
                       </p>
                       <p className="mt-1 text-xs text-slate-500 dark:text-slate-300 ">
-                        Hope to connect with you soon.
+                        {t("widgetSubheading")}
                       </p>
                     </div>
                   </div>
@@ -114,8 +97,7 @@ const ContactPage = () => {
           </div>
         </FadeIn>
 
-        {/* Contact Form: slides in from the right */}
-        <FadeIn x={80} y={0} delay={0.10} className="mx-auto w-full max-w-sm">
+        <FadeIn x={80} y={0} delay={0.1} className="mx-auto w-full max-w-sm">
           <ContactForm />
         </FadeIn>
       </div>

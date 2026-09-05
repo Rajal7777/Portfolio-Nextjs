@@ -1,6 +1,5 @@
 "use client";
 
-import { cn } from "@/lib/utils";
 import {
   Cable,
   ClipboardCheck,
@@ -11,14 +10,8 @@ import {
   Layers,
   Server,
 } from "lucide-react";
-import { Raleway } from "next/font/google";
 import { Card } from "./ui/card";
 import { FadeIn } from "./common/fade-in";
-
-const raleway = Raleway({
-  subsets: ["latin"],
-  weight: "700",
-});
 
 type SkillCategory = {
   title: string;
@@ -64,7 +57,6 @@ const skills: SkillCategory[] = [
   },
 ];
 
-//Card component for each skill category
 function SkillsCard({ title, icon: Icon, skills }: SkillCategory) {
   return (
     <Card className="p-5 min-h-35 hover:shadow-md dark:hover:shadow-white/10  transition-transform duration-300 ease-in-out">
@@ -90,16 +82,14 @@ function SkillsCard({ title, icon: Icon, skills }: SkillCategory) {
 
 const SkillSection = () => {
   return (
-    <FadeIn delay={0.10}>
-      <section
-        className={cn("max-w-4xl mx-auto text-center my-6 sm:px-6 lg:px-8", raleway.className)}
-      >
-      <h2 className="text-2xl mb-4 md:text-4xl  text-gray-800 bg-slate-100 dark:bg-slate-900 py-2 font-semibold playfair text-center my-10  border border-gray-200 dark:border-gray-700 rounded-sm">
+    <FadeIn delay={0.1}>
+      <section className="max-w-4xl mx-auto my-12 px-4 sm:px-6 lg:px-8">
+        <h2 className="text-2xl mb-4 md:text-4xl  text-gray-800 bg-slate-100 dark:bg-slate-900 py-2 font-semibold playfair text-center my-10  border border-gray-200 dark:border-gray-700 rounded-sm">
           Skills{" "}
         </h2>
-        <h5 className="mb-4 text-xl md:text-2xl text-gray-600 dark:text-gray-300">
+        <p className="mb-8 text-center text-xl md:text-2xl text-gray-600 dark:text-gray-300">
           My Tech Stack
-        </h5>
+        </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
           {skills.map((skill, index) => (

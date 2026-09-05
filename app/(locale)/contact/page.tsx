@@ -1,11 +1,16 @@
 import ContactForm from "@/components/form";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 
-export const metadata: Metadata = {
-    title: "Contact page",
-    description: "Get in touch with us",
-};
+
+export async function generateMetadata(): Promise<Metadata> {
+    const t = await getTranslations("contactPage");
+    return {
+        title: t("metaTitle"),
+        description: t("metaDescription"),
+    };
+}
 
 const ContactPage = () => {
     return (
@@ -22,7 +27,7 @@ const ContactPage = () => {
                     </BreadcrumbItem>
                 </BreadcrumbList>
             </Breadcrumb>
-     <ContactForm />
+            <ContactForm />
         </>
     );
 };

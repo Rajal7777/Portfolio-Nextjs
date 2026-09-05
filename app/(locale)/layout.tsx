@@ -74,7 +74,7 @@ export default async function RootLayout({
             <Navbar />
 
             <main
-              className="wrapper flex-1 bg-background 
+              className="wrapper flex-1 bg-background pt-16
               text-foreground"
             >
               {children}

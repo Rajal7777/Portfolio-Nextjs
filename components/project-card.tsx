@@ -37,9 +37,9 @@ const ProjectCard = ({
           <div className="w-full p-3 md:w-1/2 md:p-4">
 
             {/* Main Image Container */}
-            <div className="relative aspect-3/2 w-full overflow-hidden rounded-lg border bg-slate-50 dark:bg-slate-800">
+            <div className="relative aspect-[1.5] w-full overflow-hidden rounded-lg border bg-slate-50 dark:bg-slate-800">
               <Image
-                src={images[current]}
+                src={images[current] || "/logo.png"}
                 alt={imageAlt}
                 fill
                 quality={85}

@@ -11,83 +11,69 @@ const raleway = Raleway({
 const EducationPage = () => {
   const t = useTranslations("educationPage");
 
+ 
+  const nepalSchools = [
+    { key: "school1", image: "/images/school.png", duration: "1999 - 2012" },
+    { key: "school2", image: "/images/khwopa.png", duration: "2012 - 2014" },
+    { key: "school3", image: "/images/orchid.png", duration: "2014 - 2015" },
+  ];
+
+  const japanSchools = [
+    { key: "school4", image: "/images/kurume.svg", duration: "2015 - 2017" },
+    { key: "school5", image: "/images/ymca.webp", duration: "2017 - 2019" },
+  ];
+
   return (
     <section className="flex flex-col mx-auto max-w-4xl px-1 py-8 text-slate-800 antialiased font-sans space-y-4">
+      {/* Page Title */}
       <FadeIn>
-          <h2 className="mb-4 text-2xl md:text-4xl  text-gray-800 bg-slate-100 dark:bg-slate-900 py-2 font-semibold playfair text-center  border border-gray-200 dark:border-gray-700 rounded-sm">
+        <h2 className="mb-4 text-2xl md:text-4xl text-gray-800 bg-slate-100 dark:bg-slate-900 py-2 font-semibold playfair text-center border border-gray-200 dark:border-gray-700 rounded-sm">
           {t("title")}
         </h2>
       </FadeIn>
 
+      {/* Region: Nepal */}
       <FadeIn delay={0.1}>
-        <p className="text-base w-fit mx-auto font-bold  px-2 text-white leading-tight my-4 text-center bg-gray-950 rounded-lg py-2 ">
-          Nepal
+        <p className="text-base w-fit mx-auto font-bold px-2 text-white leading-tight my-4 text-center bg-gray-950 rounded-lg py-2">
+          {t("nepal")}
         </p>
       </FadeIn>
 
       <div className="space-y-4">
-        <FadeIn delay={0.1}>
-          <InfoCard
-            className={raleway.className}
-            title="Bright Star English School"
-            info={t("schoolInfo")}
-            description="Barahisthan, Bhaktapur"
-            image="/images/school.png"
-            duration="1999 - 2012"
-          />
-        </FadeIn>
-
-        <FadeIn delay={0.2}>
-          <InfoCard
-            className={raleway.className}
-            title="Khowpa Higher Secondary School"
-            info={t("highSchoolInfo")}
-            description="Dekocha, Bhaktapur"
-            image="/images/khwopa.png"
-            duration="2012 - 2014"
-          />
-        </FadeIn>
-
-        <FadeIn delay={0.3}>
-          <InfoCard
-            className={raleway.className}
-            title="Orchid International College"
-            info={t("collegeInfo")}
-            description="Lalitpur, Nepal"
-            image="/images/orchid.png"
-            duration="2014 - 2015"
-          />
-        </FadeIn>
+        {nepalSchools.map((school, index) => (
+          <FadeIn key={school.key} delay={0.1 + index * 0.1}>
+            <InfoCard
+              className={raleway.className}
+              title={t(`${school.key}.title`)}
+              info={t(`${school.key}.info`)}
+              description={t(`${school.key}.description`)}
+              image={school.image}
+              duration={school.duration}
+            />
+          </FadeIn>
+        ))}
       </div>
 
+      {/* Region: Japan */}
       <FadeIn delay={0.4}>
-        <p className="text-base w-fit mx-auto font-bold  px-2 text-white leading-tight my-4 text-center bg-gray-950 rounded-lg py-2 ">
-          Japan
+        <p className="text-base w-fit mx-auto font-bold px-2 text-white leading-tight my-4 text-center bg-gray-950 rounded-lg py-2">
+          {t("japan")}
         </p>
       </FadeIn>
 
       <div className="space-y-4">
-        <FadeIn delay={0.5}>
-          <InfoCard
-            className={raleway.className}
-            title="久留米日本語学校"
-            info="Kurume Japanese Language School"
-            description="Kurume, Fukuoka, Japan"
-            image="/images/kurume.svg"
-            duration="2015 - 2017"
-          />
-        </FadeIn>
-
-        <FadeIn delay={0.6}>
-          <InfoCard
-            className={raleway.className}
-            title="熊本YMCAビジネス専門学校"
-            info="Kumamoto YMCA Business College"
-            description="Kumamoto, Japan"
-            image="/images/ymca.webp"
-            duration="2017 - 2019"
-          />
-        </FadeIn>
+        {japanSchools.map((school, index) => (
+          <FadeIn key={school.key} delay={0.5 + index * 0.1}>
+            <InfoCard
+              className={raleway.className}
+              title={t(`${school.key}.title`)}
+              info={t(`${school.key}.info`)}
+              description={t(`${school.key}.description`)}
+              image={school.image}
+              duration={school.duration}
+            />
+          </FadeIn>
+        ))}
       </div>
     </section>
   );

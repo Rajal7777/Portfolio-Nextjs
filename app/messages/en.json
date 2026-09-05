@@ -8,57 +8,88 @@
       "imageAlt": "Portrait image for the portfolio hero section"
     }
   },
-
-
   "aboutMe": {
     "title": "About Me",
-    "description": "I've always been interested in technology and wanted to develop professional skills that could lead to a long-term career. I became particularly interested in frontend development because it allows me to create web services and applications that people can actually use, which motivated me to start learning web development seriously.\n\nI currently focus on HTML/CSS, JavaScript, TypeScript, React, and Next.js. Rather than simply acquiring knowledge, I believe in applying what I learn by building real-world web applications. Through personal projects, I have developed a full-stack-like web application with features such as authentication, database management, shopping cart functionality, and payment integration. From planning and implementation to improvement, I have learned the importance of user-focused UI/UX design and maintainable, reusable component architecture.When I encounter unfamiliar technologies or technical challenges, I make it a habit to research, learn, implement, and verify my understanding through practical development. I also actively use AI as a learning partner, not simply to get answers, but to understand how code works, compare different approaches, and gain insights into problem-solving.\n\nI completed a comprehensive frontend development bootcamp through Udemy, where I studied HTML, CSS, JavaScript, TypeScript, React, and Next.js. Through the course and hands-on projects, I developed a solid foundation in modern frontend development and responsive web application development.I also have basic knowledge of state management and data-fetching libraries such as Zustand, Redux, and TanStack Query, and have explored how they can be used to manage application state and server-side data efficiently.In addition, I completed a server-side development bootcamp focused on Node.js and Express, where I learned the fundamentals of backend development and API development. I also have experience using Git and GitHub for version control and project management.I continue to strengthen these skills through personal projects, applying what I learn to real-world web application development.\n\nGoing forward, I want to further develop my expertise as a frontend engineer through practical experience while deepening my knowledge of backend development, databases, and API design. My goal is to become a full-stack web engineer who can work across both frontend and backend development while effectively utilizing AI as a development and learning partner.I will continue to take on new technologies and challenges with the learning mindset and persistence I have developed so far. I also hope to utilize the communication and teamwork skills I gained from my previous experience to collaborate effectively with team members and contribute to building high-quality web services that provide real value to users.",
+    "description": "I have always been interested in technology and decided to pursue web development as a long-term career. I became particularly interested in frontend development because I enjoy creating web applications that provide real value to users.\n\nI have focused on HTML/CSS, JavaScript, TypeScript, React, and Next.js, learning primarily through hands-on development. Through personal projects, I built a full-stack web application with authentication, database management, shopping cart functionality, and payment integration. This experience taught me how to think about user-focused UI/UX, reusable component architecture, and maintainable code.\n\nWhen facing unfamiliar technologies or technical challenges, I research, implement, test, and review my understanding through practice. I also use AI as a learning partner to understand code, compare approaches, and improve my problem-solving skills.\n\nGoing forward, I want to grow as a frontend engineer through practical team experience while expanding my knowledge of backend development, databases, and APIs. My goal is to become a full-stack web engineer who can contribute to building reliable, user-focused web services and continue growing through new challenges.",
     "skillsTitle": "Core Skills",
     "frontendLabel": "Frontend",
     "stateManagementAndDataFetchingLabel": "State Management & Data Fetching",
     "backendLabel": "Backend",
     "toolsAndVersionControlLabel": "Tools & Version Control",
-    "frontend": ["HTML", "CSS", "JavaScript", "TypeScript", "React", "Next.js"],
-    "stateManagementAndDataFetching": ["Zustand", "Redux", "TanStack Query"],
-    "backend": ["Node.js", "Express"],
-    "toolsAndVersionControl": ["Git", "GitHub"],
+    "frontend": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "TypeScript",
+      "React",
+      "Next.js"
+    ],
+    "stateManagementAndDataFetching": [
+      "Zustand",
+      "Redux",
+      "TanStack Query"
+    ],
+    "backend": [
+      "Node.js",
+      "Express"
+    ],
+    "toolsAndVersionControl": [
+      "Git",
+      "GitHub"
+    ],
     "courseTitle": "Web Development Bootcamp",
     "courseDescription": "I completed a comprehensive frontend development bootcamp through Udemy, where I studied HTML, CSS, JavaScript, TypeScript, React, and Next.js. Through the course and hands-on projects, I developed a solid foundation in modern frontend development and responsive web application development.\n\nI also have basic knowledge of state management and data-fetching libraries such as Zustand, Redux, and TanStack Query, and have explored how they can be used to manage application state and server-side data efficiently.\n\nIn addition, I completed a server-side development bootcamp focused on Node.js and Express, where I learned the fundamentals of backend development and API development. I also have experience using Git and GitHub for version control and project management.\n\nI continue to strengthen these skills through personal projects, applying what I learn to real-world web application development."
   },
-
-
+  "AboutPage": {
+    "metaTitle": "About Me | Rajal Suwal",
+    "metaDescription": "Learn more about my development experience, qualifications, and visa status in Japan.",
+    "visaQualification": "Visa & Qualifications",
+    "visaStatus": "Visa Status",
+    "visaExpiry": "Visa Expiry",
+    "visaName": "Engineer / Specialist in Humanities / International Services (人文知識国際業務)",
+    "qualificationsLabel": "Qualifications",
+    "jlpt": "JLPT N2 Pass",
+    "jlptDate": "July 2021",
+    "driverLicense": "Ordinary Driver's License",
+    "licenseDate": "March 2021",
+    "udemy": "Udemy: Modern JavaScript & React Development Course Completion",
+    "udemyDate": "December 2025",
+    "toeic": "TOEIC Listening & Reading - 780 Points",
+    "toeicDate": "March 2026"
+  },
   "educationPage": {
     "title": "Education",
-    "schoolInfo": "Elementary School, Middle School",
-    "highSchoolInfo": "High School",
-    "collegeInfo": "College of Information Technology"
-  },
-
-
-  "AboutPage": {
-    "visaQualification": "Visa Status and Qualifications",
-    "visaStatus": "Visa Status",
-    "visaExpiry": "Date of Expiration"
-  },
-
-
-  "projectCard": {
-    "features": "Features",
-    "techStack": "Tech Stack",
-    "liveProject": "Live Project",
-    "liveCode": "Live Code",
-    "showProjectImage": "Show project image"
-  },
-
-  
-  "contactPage": {
-    "title": "Contact Me",
-    "getInTouch": "Get in Touch",
-    "description": "Looking forward to hearing from you!",
-    "location": "Tochigi, Japan",
-    "email": "suwalrajal57@gmail.com"
+    "nepal": "Nepal",
+    "japan": "Japan",
+    "school1": {
+      "title": "Bright Star English School",
+      "info": "Primary & Lower Secondary School",
+      "description": "Barahisthan, Bhaktapur"
+    },
+    "school2": {
+      "title": "Khwopa Higher Secondary School",
+      "info": "Higher Secondary School (+2)",
+      "description": "Dekocha, Bhaktapur"
+    },
+    "school3": {
+      "title": "Orchid International College",
+      "info": "Bachelor's Degree (Incomplete)",
+      "description": "Lalitpur, Nepal"
+    },
+    "school4": {
+      "title": "Kurume Japanese Language School",
+      "info": "Japanese Language Program",
+      "description": "Kurume, Fukuoka, Japan"
+    },
+    "school5": {
+      "title": "Kumamoto YMCA Business College",
+      "info": "Business Specialist Diploma",
+      "description": "Kumamoto, Japan"
+    }
   },
   "projects": {
+    "metaTitle": "Projects",
+    "metaDescription": "A list of my projects",
     "ecommerce": {
       "description": "A full-stack e-commerce application with authentication, product management, cart and inventory management, checkout, Stripe and PayPal payment integration, order management, and email notifications.",
       "features": [
@@ -83,5 +114,27 @@
         "Email notifications with Resend"
       ]
     }
+  },
+  "projectCard": {
+    "metaTitle": "Project Card",
+    "metaDescription": "A card component displaying project details",
+    "features": "Features",
+    "techStack": "Tech Stack",
+    "liveProject": "Live Project",
+    "liveCode": "Live Code",
+    "showProjectImage": "Show project image"
+  },
+  "contactPage": {
+    "metaTitle": "Contact Page",
+    "metaDescription": "Get in touch with me through this contact page",
+    "title": "Contact Me",
+    "getInTouch": "Get In Touch",
+    "description": "Feel free to reach out!",
+    "locationText": "Tochigi, Japan",
+    "email": "suwalrajal57@gmail.com",
+    "phoneNumber": "070-9034-4803",
+    "phoneUrl": "+817090344803",
+    "widgetHeading": "Let's Connect",
+    "widgetSubheading": "Hope to connect with you soon."
   }
 }
